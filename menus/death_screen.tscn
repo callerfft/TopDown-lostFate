@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgfahnqrpl3p3"]
+
+[ext_resource type="Script" uid="uid://dy5r21ius4gyb" path="res://menus/death_screen.gd" id="1_qnkr8"]
+
+[node name="deathScreen" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qnkr8")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.5
+offset_top = -179.5
+offset_right = 229.5
+offset_bottom = 179.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(5.525, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="restartButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "restart"
+
+[node name="mainMenuButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "main menu"
+
+[node name="death" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 0.5
+offset_right = 21.0
+offset_bottom = 23.5
+grow_horizontal = 2
+text = "death"
+
+[connection signal="pressed" from="Panel/VBoxContainer/restartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/mainMenuButton" to="." method="_on_main_menu_button_pressed"]

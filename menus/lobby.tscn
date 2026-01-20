@@ -1,0 +1,156 @@
+[gd_scene load_steps=9 format=3 uid="uid://c38j6xl8dfd2s"]
+
+[ext_resource type="Script" uid="uid://copn56c7v0wk6" path="res://menus/lobby.gd" id="1_g1gpu"]
+[ext_resource type="PackedScene" uid="uid://c7638hoocnhb0" path="res://tscn/parallax.tscn" id="2_wdsfw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5byu"]
+bg_color = Color(0.19793725, 0.19793725, 0.19793719, 1)
+corner_radius_top_left = 23
+corner_radius_top_right = 23
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdsfw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckc8j"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 3
+border_color = Color(0.62967473, 0.62967485, 0.62967443, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0joup"]
+bg_color = Color(0.23031494, 0.23031494, 0.23031497, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7iwt"]
+bg_color = Color(0.08855995, 0.0885599, 0.0885599, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyxk6"]
+bg_color = Color(0.2159017, 0.21590173, 0.21590167, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="lobby" type="Node"]
+process_mode = 3
+script = ExtResource("1_g1gpu")
+
+[node name="parallax" parent="." instance=ExtResource("2_wdsfw")]
+metadata/_edit_lock_ = true
+
+[node name="lobbyPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+offset_left = 386.0
+offset_top = 197.0
+offset_right = 706.0
+offset_bottom = 350.0
+scale = Vector2(1.3704233, 1.3704233)
+theme_override_styles/panel = SubResource("StyleBoxFlat_k5byu")
+
+[node name="lobbyButtons" type="VBoxContainer" parent="."]
+offset_left = 404.0
+offset_top = 212.99998
+offset_right = 699.0
+offset_bottom = 392.0
+scale = Vector2(1.3704233, 1.3704233)
+
+[node name="buttonIgnore" type="Button" parent="lobbyButtons"]
+layout_mode = 2
+
+[node name="startButton" type="Button" parent="lobbyButtons"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
+text = "start"
+
+[node name="optionButton" type="Button" parent="lobbyButtons"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
+text = "option"
+
+[node name="quitButton" type="Button" parent="lobbyButtons"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
+text = "quit"
+
+[node name="buttonIgnore1" type="Button" parent="lobbyButtons"]
+layout_mode = 2
+
+[node name="option" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0joup")
+
+[node name="optionPanel" type="Panel" parent="option"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 386.0
+offset_top = 197.0
+offset_right = 706.0
+offset_bottom = 350.0
+scale = Vector2(1.3704233, 1.3704233)
+theme_override_styles/panel = SubResource("StyleBoxFlat_k5byu")
+
+[node name="optionBack" type="Button" parent="option/optionPanel"]
+layout_mode = 0
+offset_left = 418.8487
+offset_top = -129.15717
+offset_right = 494.00793
+offset_bottom = -98.157166
+theme_override_colors/font_outline_color = Color(0.09019608, 0.09019608, 0.09019608, 1)
+theme_override_constants/outline_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_s7iwt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cyxk6")
+text = "back"
+
+[node name="optionBox" type="VBoxContainer" parent="option/optionPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.26404
+offset_top = -76.61866
+offset_right = 161.26404
+offset_bottom = 76.61866
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="lobbyButtons/startButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="lobbyButtons/optionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="lobbyButtons/quitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="option/optionPanel/optionBack" to="." method="_on_button_pressed"]

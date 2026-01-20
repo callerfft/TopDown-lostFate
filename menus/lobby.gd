@@ -1,0 +1,20 @@
+extends Node
+@onready var option: Panel = $option
+@onready var lobby_buttons: VBoxContainer = $lobbyButtons
+func _ready() -> void:
+	lobby_buttons.visible = true
+	option.visible = false
+	pass
+func _on_start_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://tscn/map.tscn")
+func _on_option_button_pressed() -> void:
+	print("option pressed")
+	lobby_buttons.visible = false
+	option.visible = true
+	#get_tree().change_scene_to_file("res://menus/option_menus.tscn")
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
+func _on_button_pressed() -> void:
+	print("back pressed")
+	lobby_buttons.visible = true
+	option.visible = false
