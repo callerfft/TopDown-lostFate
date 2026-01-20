@@ -2022,5 +2022,6 @@ script = null
 [node name="fpsC" parent="." instance=ExtResource("12_q5imy")]
 
 [node name="orc" parent="." instance=ExtResource("13_e1ltc")]
+position = Vector2(254, 46)
 
 [connection signal="pressed" from="pauseSystem/CanvasLayer/pauseButton" to="pauseSystem/CanvasLayer/pause" method="_on_button_pressed"]
