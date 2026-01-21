@@ -27,6 +27,7 @@ func get_direction_to_player():
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	$orcSound.play()
 	print("killed")
+	#await $orcSound.finished
 	queue_free()
 	pass # Replace with function body.
 	
