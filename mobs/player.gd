@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $playerAnim
 @onready var pause_button: Button = $"../pauseSystem/CanvasLayer/pauseButton"
 @onready var health_bar: ProgressBar = $HealthBar
-@export var max_hp := 5
+@export var max_hp := 5  
 #@export var regen_amount := 1
 #@export var regen_delay := 2.0   # сек после урона
 #@export var regen_interval := 1.0 # шаг регена
@@ -12,7 +12,7 @@ extends CharacterBody2D
 #@onready var regen_timer: Timer = $regenTimer
 var hp := max_hp
 
-
+##hui pizda
 func _ready():
 	get_tree().paused = false
 	death_screen.visible = false
