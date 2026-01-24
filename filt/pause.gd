@@ -33,3 +33,7 @@ func _on_restart_game_ui_pressed() -> void:
 func _on_lobby_game_ui_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://menus/lobby.tscn")
+
+
+func _on_option_game_ui_pressed() -> void:
+	pass # Replace with function body.

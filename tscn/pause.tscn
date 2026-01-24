@@ -230,11 +230,6 @@ theme_override_styles/normal = ExtResource("3_is4yc")
 theme_override_styles/hover = ExtResource("4_27dnq")
 text = "restart"
 
-[node name="optionGameUI" type="Button" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_is4yc")
-text = "option"
-
 [node name="lobbyGameUI" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("3_is4yc")
@@ -248,5 +243,4 @@ libraries = {
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/continueGameUI" to="." method="_on_continue_game_ui_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/restartGameUI" to="." method="_on_restart_game_ui_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/optionGameUI" to="." method="_on_option_game_ui_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/lobbyGameUI" to="." method="_on_lobby_game_ui_pressed"]

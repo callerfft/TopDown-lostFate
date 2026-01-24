@@ -104,6 +104,7 @@ centered = false
 
 [node name="lobbyPanel" type="Panel" parent="UI"]
 unique_name_in_owner = true
+visible = false
 offset_left = 386.0
 offset_top = 197.0
 offset_right = 706.0
@@ -121,7 +122,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_0joup")
 
 [node name="optionPanel" type="Panel" parent="UI/option"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
 offset_left = 79.0
 offset_top = 183.0
@@ -162,9 +162,11 @@ alignment = 1
 layout_mode = 2
 text = "music"
 alignment = 1
+icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="lobbyButtons" type="VBoxContainer" parent="UI"]
+visible = false
 offset_left = 404.0
 offset_top = 212.99998
 offset_right = 699.0
