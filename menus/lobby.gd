@@ -1,6 +1,6 @@
 extends Node
-@onready var option: Panel = $option
-@onready var lobby_buttons: VBoxContainer = $lobbyButtons
+@onready var option: Panel = $UI/option
+@onready var lobby_buttons: VBoxContainer = $UI/lobbyButtons
 func _ready() -> void:
 	lobby_buttons.visible = true
 	option.visible = false

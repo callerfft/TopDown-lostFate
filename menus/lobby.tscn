@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c38j6xl8dfd2s"]
+[gd_scene load_steps=11 format=3 uid="uid://c38j6xl8dfd2s"]
 
 [ext_resource type="Script" uid="uid://copn56c7v0wk6" path="res://menus/lobby.gd" id="1_g1gpu"]
-[ext_resource type="PackedScene" uid="uid://c7638hoocnhb0" path="res://tscn/parallax.tscn" id="2_wdsfw"]
+[ext_resource type="Texture2D" uid="uid://dgunj6eqcgvcb" path="res://map/parallax/1.png" id="2_ckc8j"]
+[ext_resource type="Texture2D" uid="uid://cnwuid7dlytte" path="res://map/parallax/2.png" id="3_s7iwt"]
+[ext_resource type="Texture2D" uid="uid://u310sjjhf5f2" path="res://map/parallax/3.png" id="4_cyxk6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5byu"]
 bg_color = Color(0.19793725, 0.19793725, 0.19793719, 1)
@@ -9,6 +11,23 @@ corner_radius_top_left = 23
 corner_radius_top_right = 23
 corner_radius_bottom_right = 23
 corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0joup"]
+bg_color = Color(0.23031494, 0.23031494, 0.23031497, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7iwt"]
+bg_color = Color(0.08855995, 0.0885599, 0.0885599, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyxk6"]
+bg_color = Color(0.2159017, 0.21590173, 0.21590167, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdsfw"]
 content_margin_left = 4.0
@@ -39,31 +58,51 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0joup"]
-bg_color = Color(0.23031494, 0.23031494, 0.23031497, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7iwt"]
-bg_color = Color(0.08855995, 0.0885599, 0.0885599, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyxk6"]
-bg_color = Color(0.2159017, 0.21590173, 0.21590167, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
 [node name="lobby" type="Node"]
 process_mode = 3
 script = ExtResource("1_g1gpu")
+metadata/_edit_horizontal_guides_ = [186.0, 515.0]
+metadata/_edit_vertical_guides_ = [76.0, 518.0]
 
-[node name="parallax" parent="." instance=ExtResource("2_wdsfw")]
-metadata/_edit_lock_ = true
+[node name="paralax" type="CanvasLayer" parent="."]
 
-[node name="lobbyPanel" type="Panel" parent="."]
+[node name="Parallax2D2" type="Parallax2D" parent="paralax"]
+repeat_size = Vector2(1150, 0)
+autoscroll = Vector2(2, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="paralax/Parallax2D2"]
+texture_repeat = 2
+scale = Vector2(1.9972408, 1.9972408)
+texture = ExtResource("2_ckc8j")
+centered = false
+
+[node name="Parallax2D3" type="Parallax2D" parent="paralax"]
+repeat_size = Vector2(1150, 0)
+autoscroll = Vector2(6.74, 0)
+repeat_times = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="paralax/Parallax2D3"]
+texture_repeat = 2
+scale = Vector2(1.9972408, 1.9972408)
+texture = ExtResource("3_s7iwt")
+centered = false
+
+[node name="Parallax2D" type="Parallax2D" parent="paralax"]
+scroll_scale = Vector2(7.08, 1)
+repeat_size = Vector2(1150.36, 0)
+autoscroll = Vector2(20.59, 0)
+repeat_times = 3
+
+[node name="Sprite2D3" type="Sprite2D" parent="paralax/Parallax2D"]
+texture_repeat = 2
+scale = Vector2(1.9972408, 1.9972408)
+texture = ExtResource("4_cyxk6")
+centered = false
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="lobbyPanel" type="Panel" parent="UI"]
 unique_name_in_owner = true
 offset_left = 386.0
 offset_top = 197.0
@@ -72,39 +111,7 @@ offset_bottom = 350.0
 scale = Vector2(1.3704233, 1.3704233)
 theme_override_styles/panel = SubResource("StyleBoxFlat_k5byu")
 
-[node name="lobbyButtons" type="VBoxContainer" parent="."]
-offset_left = 404.0
-offset_top = 212.99998
-offset_right = 699.0
-offset_bottom = 392.0
-scale = Vector2(1.3704233, 1.3704233)
-
-[node name="buttonIgnore" type="Button" parent="lobbyButtons"]
-layout_mode = 2
-
-[node name="startButton" type="Button" parent="lobbyButtons"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
-text = "start"
-
-[node name="optionButton" type="Button" parent="lobbyButtons"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
-text = "option"
-
-[node name="quitButton" type="Button" parent="lobbyButtons"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
-text = "quit"
-
-[node name="buttonIgnore1" type="Button" parent="lobbyButtons"]
-layout_mode = 2
-
-[node name="option" type="Panel" parent="."]
-visible = false
+[node name="option" type="Panel" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -112,17 +119,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0joup")
 
-[node name="optionPanel" type="Panel" parent="option"]
+[node name="optionPanel" type="Panel" parent="UI/option"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
-offset_left = 386.0
-offset_top = 197.0
-offset_right = 706.0
-offset_bottom = 350.0
+offset_left = 79.0
+offset_top = 183.0
+offset_right = 399.0
+offset_bottom = 423.8015
 scale = Vector2(1.3704233, 1.3704233)
 theme_override_styles/panel = SubResource("StyleBoxFlat_k5byu")
 
-[node name="optionBack" type="Button" parent="option/optionPanel"]
+[node name="optionBack" type="Button" parent="UI/option/optionPanel"]
 layout_mode = 0
 offset_left = 418.8487
 offset_top = -129.15717
@@ -134,7 +142,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_s7iwt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cyxk6")
 text = "back"
 
-[node name="optionBox" type="VBoxContainer" parent="option/optionPanel"]
+[node name="optionBox" type="VBoxContainer" parent="UI/option/optionPanel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -143,14 +151,51 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -161.26404
-offset_top = -76.61866
+offset_top = -120.40074
 offset_right = 161.26404
-offset_bottom = 76.61866
+offset_bottom = 120.40074
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_lock_ = true
+alignment = 1
 
-[connection signal="pressed" from="lobbyButtons/startButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="lobbyButtons/optionButton" to="." method="_on_option_button_pressed"]
-[connection signal="pressed" from="lobbyButtons/quitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="option/optionPanel/optionBack" to="." method="_on_button_pressed"]
+[node name="CheckButton" type="CheckButton" parent="UI/option/optionPanel/optionBox"]
+layout_mode = 2
+text = "music"
+alignment = 1
+vertical_icon_alignment = 0
+
+[node name="lobbyButtons" type="VBoxContainer" parent="UI"]
+offset_left = 404.0
+offset_top = 212.99998
+offset_right = 699.0
+offset_bottom = 392.0
+scale = Vector2(1.3704233, 1.3704233)
+
+[node name="buttonIgnore" type="Button" parent="UI/lobbyButtons"]
+layout_mode = 2
+
+[node name="startButton" type="Button" parent="UI/lobbyButtons"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
+text = "start"
+
+[node name="optionButton" type="Button" parent="UI/lobbyButtons"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
+text = "option"
+
+[node name="quitButton" type="Button" parent="UI/lobbyButtons"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
+text = "quit"
+
+[node name="buttonIgnore1" type="Button" parent="UI/lobbyButtons"]
+layout_mode = 2
+
+[connection signal="pressed" from="UI/option/optionPanel/optionBack" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="UI/lobbyButtons/startButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="UI/lobbyButtons/optionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="UI/lobbyButtons/quitButton" to="." method="_on_quit_button_pressed"]

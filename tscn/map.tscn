@@ -1911,6 +1911,19 @@ shadow_size = 5
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.16565639, 0.16565642, 0.16565636, 1)
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-162.00002, -16)
+scale = Vector2(0.6427002, 0.58129877)
+energy = 0.31
+texture = ExtResource("10_r7qdg")
+texture_scale = 3.2
+
+[node name="PointLight2D" type="PointLight2D" parent="PointLight2D"]
+visible = false
+energy = 0.35
+texture = ExtResource("10_r7qdg")
+texture_scale = 0.5
+
 [node name="map" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -1981,13 +1994,13 @@ offset_top = 7.0
 offset_right = -1.0
 offset_bottom = 7.0
 
-[node name="Control" type="Control" parent="."]
+[node name="joystick" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="touchJoystick" parent="Control" instance=ExtResource("7_1f6fc")]
+[node name="touchJoystick" parent="joystick" instance=ExtResource("7_1f6fc")]
 
 [node name="timerOnScreen" parent="." instance=ExtResource("8_bhkyt")]
 
@@ -2002,18 +2015,6 @@ collision_mask = 36
 wait_time = 0.375
 one_shot = true
 autostart = true
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-162.00002, -16)
-scale = Vector2(0.6427002, 0.58129877)
-energy = 0.31
-texture = ExtResource("10_r7qdg")
-texture_scale = 3.2
-
-[node name="PointLight2D" type="PointLight2D" parent="PointLight2D"]
-energy = 0.35
-texture = ExtResource("10_r7qdg")
-texture_scale = 0.5
 
 [node name="regenZone" parent="." instance=ExtResource("11_fd4qy")]
 position = Vector2(-180, -32)
