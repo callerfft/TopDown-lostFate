@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c38j6xl8dfd2s"]
+[gd_scene load_steps=21 format=3 uid="uid://c38j6xl8dfd2s"]
 
 [ext_resource type="Script" uid="uid://copn56c7v0wk6" path="res://menus/lobby.gd" id="1_g1gpu"]
 [ext_resource type="Texture2D" uid="uid://dgunj6eqcgvcb" path="res://map/parallax/1.png" id="2_ckc8j"]
 [ext_resource type="Texture2D" uid="uid://cnwuid7dlytte" path="res://map/parallax/2.png" id="3_s7iwt"]
 [ext_resource type="Texture2D" uid="uid://u310sjjhf5f2" path="res://map/parallax/3.png" id="4_cyxk6"]
+[ext_resource type="Script" uid="uid://chq1k7pcjbrb1" path="res://menus/audio_control.gd" id="5_s7iwt"]
+[ext_resource type="AudioStream" uid="uid://bw2cww4t8cgwh" path="res://C418 - Moog City 2 (Slowed).mp3" id="6_cyxk6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5byu"]
 bg_color = Color(0.19793725, 0.19793725, 0.19793719, 1)
@@ -16,7 +18,7 @@ corner_radius_bottom_left = 23
 bg_color = Color(0.23031494, 0.23031494, 0.23031497, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7iwt"]
-bg_color = Color(0.08855995, 0.0885599, 0.0885599, 1)
+bg_color = Color(0.11858138, 0.11858139, 0.11858136, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -28,6 +30,43 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ckc8j"]
+color = Color(1, 1, 1, 1)
+grow_begin = -16.0
+thickness = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7xq5"]
+bg_color = Color(0.44685698, 0, 0.055223525, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4341u"]
+bg_color = Color(0.41413826, 0.0018657404, 0.6849594, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36axj"]
+bg_color = Color(0.15487596, 0.154876, 0.15487587, 1)
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ymqo"]
+bg_color = Color(0.15487596, 0.154876, 0.15487587, 1)
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqq2p"]
+bg_color = Color(0.2159017, 0.21590173, 0.21590167, 1)
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crjt7"]
+bg_color = Color(0.15487608, 0.15487596, 0.154876, 1)
+corner_radius_top_left = 23
+corner_radius_top_right = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad0dw"]
+bg_color = Color(0.18717611, 0.18717614, 0.18717608, 1)
+corner_radius_top_left = 23
+corner_radius_top_right = 23
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdsfw"]
 content_margin_left = 4.0
@@ -104,7 +143,6 @@ centered = false
 
 [node name="lobbyPanel" type="Panel" parent="UI"]
 unique_name_in_owner = true
-visible = false
 offset_left = 386.0
 offset_top = 197.0
 offset_right = 706.0
@@ -132,11 +170,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_k5byu")
 
 [node name="optionBack" type="Button" parent="UI/option/optionPanel"]
 layout_mode = 0
-offset_left = 418.8487
+offset_left = 682.27094
 offset_top = -129.15717
-offset_right = 494.00793
+offset_right = 757.4302
 offset_bottom = -98.157166
-theme_override_colors/font_outline_color = Color(0.09019608, 0.09019608, 0.09019608, 1)
+theme_override_colors/font_outline_color = Color(0.17283267, 0.17283267, 0.17283261, 1)
 theme_override_constants/outline_size = 9
 theme_override_styles/normal = SubResource("StyleBoxFlat_s7iwt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cyxk6")
@@ -145,14 +183,14 @@ text = "back"
 [node name="optionBox" type="VBoxContainer" parent="UI/option/optionPanel"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -161.26404
-offset_top = -120.40074
-offset_right = 161.26404
+offset_left = -109.65059
+offset_top = -110.91463
+offset_right = 88.82822
 offset_bottom = 120.40074
 grow_horizontal = 2
 grow_vertical = 2
@@ -160,10 +198,43 @@ alignment = 1
 
 [node name="CheckButton" type="CheckButton" parent="UI/option/optionPanel/optionBox"]
 layout_mode = 2
+button_pressed = true
 text = "music"
 alignment = 1
 icon_alignment = 1
 vertical_icon_alignment = 0
+
+[node name="audioControl" type="HSlider" parent="UI/option/optionPanel/optionBox"]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_ckc8j")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_w7xq5")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_4341u")
+min_value = -40.0
+max_value = 6.0
+script = ExtResource("5_s7iwt")
+audio = "Master"
+
+[node name="Button" type="Button" parent="UI/option/optionPanel"]
+layout_mode = 0
+offset_left = -0.7296982
+offset_top = 212.34315
+offset_right = 318.87955
+offset_bottom = 243.34315
+theme_override_styles/normal = SubResource("StyleBoxFlat_36axj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ymqo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gqq2p")
+text = "|                                                                    |"
+
+[node name="Button2" type="Button" parent="UI/option/optionPanel"]
+layout_mode = 0
+offset_left = -0.7297037
+offset_top = 0.7297039
+offset_right = 320.2703
+offset_bottom = 31.729706
+theme_override_styles/normal = SubResource("StyleBoxFlat_crjt7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_crjt7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ad0dw")
+text = "|                                                                       |"
 
 [node name="lobbyButtons" type="VBoxContainer" parent="UI"]
 visible = false
@@ -197,7 +268,13 @@ text = "quit"
 [node name="buttonIgnore1" type="Button" parent="UI/lobbyButtons"]
 layout_mode = 2
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cyxk6")
+autoplay = true
+
 [connection signal="pressed" from="UI/option/optionPanel/optionBack" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="UI/option/optionPanel/optionBox/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="value_changed" from="UI/option/optionPanel/optionBox/audioControl" to="UI/option/optionPanel/optionBox/audioControl" method="_on_value_changed"]
 [connection signal="pressed" from="UI/lobbyButtons/startButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="UI/lobbyButtons/optionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="UI/lobbyButtons/quitButton" to="." method="_on_quit_button_pressed"]

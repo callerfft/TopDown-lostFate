@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6gk11hxej4cs"
+path="res://.godot/imported/C418 - Moog City 2.mp3-adf4ed9b1a8ceafefbb1a32c24c66701.mp3str"
+
+[deps]
+
+source_file="res://C418 - Moog City 2.mp3"
+dest_files=["res://.godot/imported/C418 - Moog City 2.mp3-adf4ed9b1a8ceafefbb1a32c24c66701.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

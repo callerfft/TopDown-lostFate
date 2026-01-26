@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bwd4w87xmj16h"]
+[gd_scene load_steps=29 format=4 uid="uid://bwd4w87xmj16h"]
 
 [ext_resource type="Texture2D" uid="uid://jxxd7m2sxmc0" path="res://map/mapLayer/TX Tileset Grass.png" id="1_yx4x3"]
 [ext_resource type="Texture2D" uid="uid://bchfti3x0lmm6" path="res://map/mapLayer/TX Struct.png" id="2_x0n1c"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://tmmme5hmnt4o" path="res://tscn/regen_zone.tscn" id="11_fd4qy"]
 [ext_resource type="PackedScene" uid="uid://btwotx1f2upi4" path="res://tscn/fps_c.tscn" id="12_q5imy"]
 [ext_resource type="PackedScene" uid="uid://ybxtopsdvrbd" path="res://mobs/orc.tscn" id="13_e1ltc"]
+[ext_resource type="AudioStream" uid="uid://bw2cww4t8cgwh" path="res://C418 - Moog City 2 (Slowed).mp3" id="14_bhc64"]
+[ext_resource type="Script" uid="uid://degj2tb3r22hc" path="res://tscn/audio_stream_player.gd" id="15_ouipm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lyie"]
 texture = ExtResource("1_yx4x3")
@@ -1909,7 +1911,6 @@ shadow_size = 5
 [node name="map" type="Node"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.16565639, 0.16565642, 0.16565636, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -2025,5 +2026,11 @@ script = null
 
 [node name="orc" parent="." instance=ExtResource("13_e1ltc")]
 position = Vector2(254, 46)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_bhc64")
+autoplay = true
+script = ExtResource("15_ouipm")
 
 [connection signal="pressed" from="pauseSystem/CanvasLayer/pauseButton" to="pauseSystem/CanvasLayer/pause" method="_on_button_pressed"]

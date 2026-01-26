@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bw2cww4t8cgwh"
+path="res://.godot/imported/C418 - Moog City 2 (Slowed).mp3-2a88ebc3033fe23fb870fa8c7f84eb64.mp3str"
+
+[deps]
+
+source_file="res://C418 - Moog City 2 (Slowed).mp3"
+dest_files=["res://.godot/imported/C418 - Moog City 2 (Slowed).mp3-2a88ebc3033fe23fb870fa8c7f84eb64.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

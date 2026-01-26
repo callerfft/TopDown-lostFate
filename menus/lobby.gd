@@ -1,6 +1,8 @@
 extends Node
 @onready var option: Panel = $UI/option
 @onready var lobby_buttons: VBoxContainer = $UI/lobbyButtons
+var check_button = false
+
 func _ready() -> void:
 	lobby_buttons.visible = true
 	option.visible = false
@@ -18,3 +20,13 @@ func _on_button_pressed() -> void:
 	print("back pressed")
 	lobby_buttons.visible = true
 	option.visible = false
+
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		$AudioStreamPlayer.play()
+		check_button = true
+	else:
+		$AudioStreamPlayer.stream_paused = true
+		check_button = false

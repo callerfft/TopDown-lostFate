@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dryjqb3daek3f"]
+
+[ext_resource type="Script" uid="uid://fnvigxylqxqu" path="res://music_player.gd" id="1_k4xj7"]
+[ext_resource type="AudioStream" uid="uid://bw2cww4t8cgwh" path="res://C418 - Moog City 2 (Slowed).mp3" id="2_p3pav"]
+
+[node name="MusicPlayer" type="Node"]
+script = ExtResource("1_k4xj7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_p3pav")
+autoplay = true

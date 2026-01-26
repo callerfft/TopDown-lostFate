@@ -5,6 +5,6 @@ resource_name = "Phaser"
 
 [resource]
 bus/0/bypass_fx = true
-bus/0/volume_db = -14.05601
+bus/0/volume_db = -0.13049698
 bus/0/effect/0/effect = SubResource("AudioEffectPhaser_j3pel")
 bus/0/effect/0/enabled = true
