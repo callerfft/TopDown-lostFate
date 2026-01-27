@@ -286,7 +286,7 @@ stream = ExtResource("10_egokn")
 
 [node name="shoot" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("11_lrshf")
-volume_db = -6.193
+volume_db = -21.763
 
 [connection signal="area_entered" from="regen" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbogcv38kvudd"]
+
+[ext_resource type="Script" uid="uid://b1e8v1xwgl4ya" path="res://addons/claude/DroppedItem.gd" id="1_h2py1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6k7wp"]
+
+[node name="DroppedItem" type="Area2D"]
+script = ExtResource("1_h2py1")
+metadata/_edit_vertical_guides_ = [10.0, -10.0]
+metadata/_edit_horizontal_guides_ = [-10.0, 10.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6k7wp")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

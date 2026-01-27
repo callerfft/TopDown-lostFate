@@ -15,6 +15,13 @@ signal health_changed(new_hp: int)
 #@onready var regen_timer: Timer = $regenTimer
 var hp := max_hp
 ##hui pizda
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("hp+"):
+		hp = hp + 100
+		print(hp)
+		pass
 func _ready():
 	get_tree().paused = false
 	death_screen.visible = false
