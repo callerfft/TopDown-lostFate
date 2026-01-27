@@ -10,17 +10,20 @@ shader = ExtResource("2_syfd3")
 shader_parameter/lod = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebs2q"]
-bg_color = Color(0.2051174, 0.20511746, 0.20511732, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.5290667, 0.52906674, 0.5290664, 1)
+bg_color = Color(0.12591085, 0.12591085, 0.12591082, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.13682574, 0.13682574, 0.13682568, 1)
 border_blend = true
 corner_radius_top_left = 21
 corner_radius_top_right = 21
 corner_radius_bottom_right = 21
 corner_radius_bottom_left = 21
+shadow_color = Color(0.01, 0.01, 0.01, 0.83137256)
+shadow_size = 23
+anti_aliasing_size = 7.66
 
 [sub_resource type="Animation" id="Animation_qmwnm"]
 length = 0.001
