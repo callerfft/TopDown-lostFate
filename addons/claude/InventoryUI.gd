@@ -6,7 +6,7 @@ var item_db
 
 @onready var item_list: ItemList = $CanvasLayer/Panel/ItemList
 @onready var item_info: Label = $CanvasLayer/Panel/ItemInfo
-
+#remake
 func _ready():
 	# Получаем autoload ноды
 	inventory = get_node("/root/Inventory")
