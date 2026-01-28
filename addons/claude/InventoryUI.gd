@@ -59,6 +59,8 @@ func _on_item_selected(index: int):
 	item_info.text = info_text
 
 func _input(event):
+	if event.is_action_pressed("esc"):
+		visible = visible
 	# Открыть/закрыть инвентарь клавишей Tab
 	if event.is_action_pressed("inventory"):  # ESC или Tab
 		visible = !visible

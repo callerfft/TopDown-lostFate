@@ -1911,7 +1911,6 @@ shadow_size = 5
 [node name="map" type="Node"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.16565639, 0.16565642, 0.16565636, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

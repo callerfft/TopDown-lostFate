@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://c38j6xl8dfd2s"]
+[gd_scene load_steps=22 format=3 uid="uid://c38j6xl8dfd2s"]
 
 [ext_resource type="Script" uid="uid://copn56c7v0wk6" path="res://menus/lobby.gd" id="1_g1gpu"]
 [ext_resource type="Texture2D" uid="uid://dgunj6eqcgvcb" path="res://map/parallax/1.png" id="2_ckc8j"]
 [ext_resource type="Texture2D" uid="uid://cnwuid7dlytte" path="res://map/parallax/2.png" id="3_s7iwt"]
 [ext_resource type="Texture2D" uid="uid://u310sjjhf5f2" path="res://map/parallax/3.png" id="4_cyxk6"]
 [ext_resource type="Script" uid="uid://chq1k7pcjbrb1" path="res://menus/audio_control.gd" id="5_s7iwt"]
+[ext_resource type="Script" uid="uid://vadnlhaxoyus" path="res://menus/sound_control.gd" id="6_0joup"]
 [ext_resource type="AudioStream" uid="uid://bw2cww4t8cgwh" path="res://C418 - Moog City 2 (Slowed).mp3" id="6_cyxk6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5byu"]
@@ -214,6 +215,13 @@ max_value = 6.0
 script = ExtResource("5_s7iwt")
 audio = "Master"
 
+[node name="soundControl" type="HSlider" parent="UI/option/optionPanel/optionBox"]
+layout_mode = 2
+min_value = -60.0
+max_value = 10.0
+value = -20.0
+script = ExtResource("6_0joup")
+
 [node name="Button" type="Button" parent="UI/option/optionPanel"]
 layout_mode = 0
 offset_left = -0.7296982
@@ -275,6 +283,7 @@ autoplay = true
 [connection signal="pressed" from="UI/option/optionPanel/optionBack" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="UI/option/optionPanel/optionBox/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="value_changed" from="UI/option/optionPanel/optionBox/audioControl" to="UI/option/optionPanel/optionBox/audioControl" method="_on_value_changed"]
+[connection signal="value_changed" from="UI/option/optionPanel/optionBox/soundControl" to="UI/option/optionPanel/optionBox/soundControl" method="_on_value_changed"]
 [connection signal="pressed" from="UI/lobbyButtons/startButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="UI/lobbyButtons/optionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="UI/lobbyButtons/quitButton" to="." method="_on_quit_button_pressed"]

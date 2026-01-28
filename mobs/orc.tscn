@@ -36,13 +36,13 @@ region = Rect2(500, 0, 100, 100)
 atlas = ExtResource("1_1c74i")
 region = Rect2(0, 400, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ahqds"]
-atlas = ExtResource("1_1c74i")
-region = Rect2(100, 400, 100, 100)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5rf5"]
 atlas = ExtResource("1_1c74i")
 region = Rect2(200, 400, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahqds"]
+atlas = ExtResource("1_1c74i")
+region = Rect2(100, 400, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sl3vh"]
 atlas = ExtResource("1_1c74i")
@@ -101,7 +101,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fpefl")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 9.0
 }, {
@@ -110,17 +110,17 @@ animations = [{
 "texture": SubResource("AtlasTexture_u1ea6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ahqds")
+"texture": SubResource("AtlasTexture_y5rf5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y5rf5")
+"texture": SubResource("AtlasTexture_ahqds")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sl3vh")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
-"speed": 6.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -147,7 +147,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lgnth")
 }],
-"loop": true,
+"loop": false,
 "name": &"move",
 "speed": 11.0
 }]
@@ -163,10 +163,8 @@ shape = SubResource("CapsuleShape2D_q5rie")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k0rl5")
-animation = &"move"
+animation = &"hurt"
 autoplay = "default"
-frame = 7
-frame_progress = 0.35128155
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
@@ -177,6 +175,6 @@ shape = SubResource("CircleShape2D_85irk")
 
 [node name="orcSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_85irk")
-volume_db = 5.485
+volume_db = -13.33
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
