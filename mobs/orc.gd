@@ -1,16 +1,18 @@
 extends CharacterBody2D
 
+signal enemy_died  # ЭТУ СТРОКУ НУЖНО ДОБАВИТЬ В САМОЕ НАЧАЛО!
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var speed = 100
 var damage_area = null
-var is_dead = false  # Добавляем флаг смерти
+var is_dead = false
 
 func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
-	if is_dead:  # Если мертв, не выполняем логику движения
+	if is_dead:
 		return
 		
 	var direction = get_direction_to_player()
@@ -18,7 +20,7 @@ func _process(_delta: float) -> void:
 	move_and_slide()
 	
 	if direction.x != 0 || direction.y != 0:
-		animated_sprite_2d.play("move")
+		animated_sprite_2d.play("move")  # Предполагаю что анимация бега называется "run"
 	else:
 		animated_sprite_2d.play("default")
 	
@@ -33,14 +35,15 @@ func get_direction_to_player():
 	return Vector2.ZERO
 
 func _on_area_2d_area_entered(_area: Area2D) -> void:
-	is_dead = true  # Устанавливаем флаг смерти
+	is_dead = true
 	speed = 0
 	$orcSound.play()
 	animated_sprite_2d.play("hurt")
 	
 	print("killed")
+	print("Emitting enemy_died signal")
+	enemy_died.emit()  # Теперь это сработает!
 	
-	# Ждем окончания анимации
 	await animated_sprite_2d.animation_finished
 	
 	queue_free()

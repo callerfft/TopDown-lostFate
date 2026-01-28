@@ -60,13 +60,15 @@ func update_all_labels() -> void:
 	artifacts_label.text = "Artifacts: %d" % GameManager.artifacts
 
 func _on_kills_changed(kills: int) -> void:
+	print("UI: Kills changed to ", kills)  # Добавь
 	kills_label.text = "Kills: %d" % kills
 
+func _on_exp_changed(current: int, needed: int) -> void:
+	print("UI: EXP changed to ", current, " / ", needed)  # Добавь
+	exp_label.text = "EXP: %d / %d" % [current, needed]
 func _on_level_up(new_level: int) -> void:
 	level_label.text = "Level: %d" % new_level
 
-func _on_exp_changed(current: int, needed: int) -> void:
-	exp_label.text = "EXP: %d / %d" % [current, needed]
 
 func _on_wave_changed(wave_number: int) -> void:
 	wave_label.text = "Wave: %d" % wave_number

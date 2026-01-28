@@ -43,12 +43,12 @@ func emit_initial_signals() -> void:
 # Добавить опыт
 func add_exp(amount: int) -> void:
 	current_exp += amount
+	print("EXP added! Current: ", current_exp, " / ", exp_to_next_level)  # Добавь эту строку
 	exp_changed.emit(current_exp, exp_to_next_level)
 	
 	# Проверка повышения уровня
 	while current_exp >= exp_to_next_level:
 		increase_level()
-
 # Повышение уровня
 func increase_level() -> void:
 	player_level += 1
@@ -64,16 +64,14 @@ func increase_level() -> void:
 	
 	level_up.emit(player_level)
 	exp_changed.emit(current_exp, exp_to_next_level)
-
-# Добавить убийство
 func add_kill() -> void:
 	total_kills += 1
 	kills_this_wave += 1
+	print("Kill added! Total: ", total_kills)  # Добавь эту строку
 	kills_changed.emit(total_kills)
 	
 	# Добавляем опыт за убийство
 	add_exp(2)
-
 # Следующая волна
 func next_wave() -> void:
 	current_wave += 1
