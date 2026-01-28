@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.5", "Mobile")
 
 FpsC="*res://tscn/fps_c.tscn"
 ItemDatabase="*res://addons/claude/ItemDatabase.gd"
+GameManager="*res://game_manager.gd"
 
 [debug]
 

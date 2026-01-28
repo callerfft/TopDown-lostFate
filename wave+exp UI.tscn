@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgo358c4e7dwp"]
+
+[ext_resource type="Script" uid="uid://up2qiyoc2p13" path="res://ui.gd" id="1_2yfm1"]
+
+[node name="wave + exp UI" type="CanvasLayer" groups=["wave_manager"]]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 771.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2yfm1")
+
+[node name="StaticConteiner" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9348958
+anchor_top = 0.09259259
+anchor_right = 0.9965278
+anchor_bottom = 0.1574074
+offset_left = -40.0
+offset_bottom = 158.0
+grow_horizontal = 0
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="KillsLabel" type="Label" parent="UI/StaticConteiner"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+
+[node name="LevelLabel" type="Label" parent="UI/StaticConteiner"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+
+[node name="ExpLabel" type="Label" parent="UI/StaticConteiner"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+
+[node name="WaveLabel" type="Label" parent="UI/StaticConteiner"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+
+[node name="CoinsLabel" type="Label" parent="UI/StaticConteiner"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+
+[node name="ArtifactsLabel" type="Label" parent="UI/StaticConteiner"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+
+[node name="WaveTimerContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -21.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TimerLabel" type="Label" parent="UI/WaveTimerContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+
+[node name="SkipButton" type="Button" parent="UI/WaveTimerContainer"]
+layout_mode = 2
+text = "skip"
