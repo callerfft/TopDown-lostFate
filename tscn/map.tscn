@@ -1996,6 +1996,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1f6fc")
 text = "pause"
 
 [node name="pause" parent="pauseSystem/CanvasLayer" instance=ExtResource("5_x0n1c")]
+visible = false
 offset_left = -1.0
 offset_top = 7.0
 offset_right = -1.0
@@ -2025,6 +2026,7 @@ autostart = true
 
 [node name="regenZone" parent="." instance=ExtResource("11_fd4qy")]
 position = Vector2(-180, -32)
+scale = Vector2(0.43986875, 1.1913743)
 script = null
 
 [node name="fpsC" parent="." instance=ExtResource("12_q5imy")]
