@@ -18,10 +18,19 @@ var hp := max_hp
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("hp+"):
+	if event.is_action_pressed("hp + 1"):
+		hp = hp + 1
+		print(hp)
+		pass
+	if event.is_action_pressed("hp + 100"):
 		hp = hp + 100
 		print(hp)
 		pass
+	if event.is_action_pressed("damage"):
+		hp = hp - 1
+		print(hp)
+		pass
+	health_bar.health = hp
 func _ready():
 	get_tree().paused = false
 	death_screen.visible = false
@@ -40,6 +49,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void: #hp regen
 		health_changed.emit(hp)
 		print("regeneration")
 		$sounds/regenSound.play()
+		$AnimationPlayer.play("heal")
 		print(hp)
 		health_bar.health = hp
 	else:
@@ -64,8 +74,10 @@ func _process(_delta):
 			animated_sprite_2d.scale.x = face_sign
 func take_damage():
 	hp -= 1
+	#$playerAnim.play("hurt")
 	$sounds/playerHurt.play()
 	$AnimationPlayer.play("hurt")
+	
 	print(hp)
 	health_bar.health = hp 
 	if hp <= 0:
