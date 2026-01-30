@@ -1,0 +1,102 @@
+[gd_scene load_steps=15 format=3 uid="uid://b6d5okop6n32g"]
+
+[ext_resource type="Texture2D" uid="uid://d4kieh5q6xnsw" path="res://Holy VFX 02.png" id="1_xk8f4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rryny"]
+atlas = ExtResource("1_xk8f4")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1pi0"]
+atlas = ExtResource("1_xk8f4")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47v0q"]
+atlas = ExtResource("1_xk8f4")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyo3u"]
+atlas = ExtResource("1_xk8f4")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qnto"]
+atlas = ExtResource("1_xk8f4")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kvn4"]
+atlas = ExtResource("1_xk8f4")
+region = Rect2(432, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77ej2"]
+atlas = ExtResource("1_xk8f4")
+region = Rect2(480, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2q0d"]
+atlas = ExtResource("1_xk8f4")
+region = Rect2(528, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt5b8"]
+atlas = ExtResource("1_xk8f4")
+region = Rect2(576, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2h7d"]
+atlas = ExtResource("1_xk8f4")
+region = Rect2(624, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e6o4"]
+atlas = ExtResource("1_xk8f4")
+region = Rect2(672, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ht0n"]
+atlas = ExtResource("1_xk8f4")
+region = Rect2(720, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3sj3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rryny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1pi0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47v0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyo3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qnto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kvn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77ej2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2q0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt5b8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2h7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e6o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ht0n")
+}],
+"loop": true,
+"name": &"blood",
+"speed": 12.0
+}]
+
+[node name="holy" type="AnimatedSprite2D"]
+position = Vector2(-7.1054274e-15, -2.9999998)
+scale = Vector2(0.5926455, 0.63832927)
+sprite_frames = SubResource("SpriteFrames_e3sj3")
+animation = &"blood"
+autoplay = "default"
