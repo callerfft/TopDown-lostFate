@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2yfm1")
 
-[node name="StaticConteiner" type="VBoxContainer" parent="UI"]
+[node name="StatsContainer" type="VBoxContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.9348958
@@ -27,27 +27,27 @@ grow_horizontal = 0
 alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="KillsLabel" type="Label" parent="UI/StaticConteiner"]
+[node name="KillsLabel" type="Label" parent="UI/StatsContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 
-[node name="LevelLabel" type="Label" parent="UI/StaticConteiner"]
+[node name="LevelLabel" type="Label" parent="UI/StatsContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 
-[node name="ExpLabel" type="Label" parent="UI/StaticConteiner"]
+[node name="ExpLabel" type="Label" parent="UI/StatsContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 
-[node name="WaveLabel" type="Label" parent="UI/StaticConteiner"]
+[node name="WaveLabel" type="Label" parent="UI/StatsContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 
-[node name="CoinsLabel" type="Label" parent="UI/StaticConteiner"]
+[node name="CoinsLabel" type="Label" parent="UI/StatsContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 
-[node name="ArtifactsLabel" type="Label" parent="UI/StaticConteiner"]
+[node name="ArtifactsLabel" type="Label" parent="UI/StatsContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 

@@ -1,12 +1,13 @@
 extends Control
+#@onready var kills_label: Label = $StatsConteiner/KillsLabel
 
 # Статистика
-@onready var kills_label: Label = $StaticConteiner/KillsLabel
-@onready var level_label: Label = $StaticConteiner/LevelLabel
-@onready var exp_label: Label = $StaticConteiner/ExpLabel
-@onready var wave_label: Label = $StaticConteiner/WaveLabel
-@onready var coins_label: Label = $StaticConteiner/CoinsLabel
-@onready var artifacts_label: Label = $StaticConteiner/ArtifactsLabel
+@onready var kills_label: Label = $StatsContainer/KillsLabel
+@onready var level_label: Label = $StatsContainer/LevelLabel
+@onready var exp_label: Label = $StatsContainer/ExpLabel
+@onready var wave_label: Label = $StatsContainer/WaveLabel
+@onready var coins_label: Label = $StatsContainer/CoinsLabel
+@onready var artifacts_label: Label = $StatsContainer/ArtifactsLabel
 
 # Таймер волны
 @onready var wave_timer_container: VBoxContainer = $WaveTimerContainer
@@ -16,24 +17,20 @@ extends Control
 var wave_manager: Node
 
 func _ready() -> void:
-	# Подключаем сигналы GameManager
-	GameManager.kills_changed.connect(_on_kills_changed)
+	# Подключаем ОДИН сигнал вместо 6
+	GameManager.stats_updated.connect(update_all_labels)
 	GameManager.level_up.connect(_on_level_up)
-	GameManager.exp_changed.connect(_on_exp_changed)
-	GameManager.wave_changed.connect(_on_wave_changed)
-	GameManager.coins_changed.connect(_on_coins_changed)
-	GameManager.artifacts_changed.connect(_on_artifacts_changed)
-	
-	# Подключаем кнопку
-	skip_button.pressed.connect(_on_skip_button_pressed)
 	
 	# Находим WaveManager с задержкой
 	call_deferred("setup_wave_manager")
 	
-	# Инициализируем UI с текущими значениями
-	await get_tree().process_frame  # Добавь эту строку
-	update_all_labels()  # Переместил сюда
+	# Подключаем кнопку
+	skip_button.pressed.connect(_on_skip_button_pressed)
+	
+	# Инициализируем UI
 	wave_timer_container.visible = false
+	update_all_labels()
+
 func setup_wave_manager() -> void:
 	wave_manager = get_tree().get_first_node_in_group("wave_manager")
 	if wave_manager:
@@ -41,6 +38,7 @@ func setup_wave_manager() -> void:
 			wave_manager.wave_completed.connect(_on_wave_completed)
 		if wave_manager.has_signal("wave_started"):
 			wave_manager.wave_started.connect(_on_wave_started)
+
 func _process(_delta: float) -> void:
 	# Обновляем таймер
 	if wave_timer_container.visible and wave_manager:
@@ -51,6 +49,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and wave_timer_container.visible:
 		_on_skip_button_pressed()
 
+# ОДНА функция обновления всего UI
 func update_all_labels() -> void:
 	kills_label.text = "Kills: %d" % GameManager.total_kills
 	level_label.text = "Level: %d" % GameManager.player_level
@@ -59,25 +58,8 @@ func update_all_labels() -> void:
 	coins_label.text = "Coins: %d" % GameManager.coins
 	artifacts_label.text = "Artifacts: %d" % GameManager.artifacts
 
-func _on_kills_changed(kills: int) -> void:
-	print("UI: Kills changed to ", kills)  # Добавь
-	kills_label.text = "Kills: %d" % kills
-
-func _on_exp_changed(current: int, needed: int) -> void:
-	print("UI: EXP changed to ", current, " / ", needed)  # Добавь
-	exp_label.text = "EXP: %d / %d" % [current, needed]
 func _on_level_up(new_level: int) -> void:
-	level_label.text = "Level: %d" % new_level
-
-
-func _on_wave_changed(wave_number: int) -> void:
-	wave_label.text = "Wave: %d" % wave_number
-
-func _on_coins_changed(coins: int) -> void:
-	coins_label.text = "Coins: %d" % coins
-
-func _on_artifacts_changed(artifacts: int) -> void:
-	artifacts_label.text = "Artifacts: %d" % artifacts
+	print("LEVEL UP! New level: %d" % new_level)
 
 func _on_wave_completed() -> void:
 	wave_timer_container.visible = true
