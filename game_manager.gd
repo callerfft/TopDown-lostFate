@@ -18,37 +18,29 @@ var artifacts: int = 0
 const SAVE_FILE = "user://savegame.save"
 
 # Сигналы для UI
-signal exp_changed(current, needed)
+signal stats_updated  # ОДИН сигнал для всего
 signal level_up(new_level)
-signal wave_changed(wave_number)
-signal kills_changed(kills)
-signal coins_changed(coins)
-signal artifacts_changed(artifacts)
 
 func _ready() -> void:
 	load_game()
-	
-	# Испускаем все сигналы после загрузки, чтобы UI обновился
-	await get_tree().process_frame  # Ждем один кадр, чтобы UI был готов
-	emit_initial_signals()
+	# Не ждем кадр, сразу обновляем
+	emit_stats()
 
-# Добавь эту новую функцию
-func emit_initial_signals() -> void:
-	kills_changed.emit(total_kills)
-	level_up.emit(player_level)
-	exp_changed.emit(current_exp, exp_to_next_level)
-	wave_changed.emit(current_wave)
-	coins_changed.emit(coins)
-	artifacts_changed.emit(artifacts)
+# Единая функция обновления статистики
+func emit_stats() -> void:
+	stats_updated.emit()
+
 # Добавить опыт
 func add_exp(amount: int) -> void:
 	current_exp += amount
-	print("EXP added! Current: ", current_exp, " / ", exp_to_next_level)  # Добавь эту строку
-	exp_changed.emit(current_exp, exp_to_next_level)
 	
 	# Проверка повышения уровня
 	while current_exp >= exp_to_next_level:
 		increase_level()
+	
+	# Обновляем UI один раз
+	emit_stats()
+
 # Повышение уровня
 func increase_level() -> void:
 	player_level += 1
@@ -63,30 +55,32 @@ func increase_level() -> void:
 		exp_to_next_level = 300
 	
 	level_up.emit(player_level)
-	exp_changed.emit(current_exp, exp_to_next_level)
+ 
 func add_kill() -> void:
 	total_kills += 1
 	kills_this_wave += 1
-	print("Kill added! Total: ", total_kills)  # Добавь эту строку
-	kills_changed.emit(total_kills)
 	
-	# Добавляем опыт за убийство
+	print(">>> GameManager.add_kill() called! Total: ", total_kills)
+	
+	# Добавляем опыт за убийство (это вызовет emit_stats)
 	add_exp(2)
+
+
 # Следующая волна
 func next_wave() -> void:
 	current_wave += 1
 	kills_this_wave = 0
-	wave_changed.emit(current_wave)
+	emit_stats()
 
 # Добавить монеты
 func add_coins(amount: int) -> void:
 	coins += amount
-	coins_changed.emit(coins)
+	emit_stats()
 
 # Добавить артефакты
 func add_artifacts(amount: int) -> void:
 	artifacts += amount
-	artifacts_changed.emit(artifacts)
+	emit_stats()
 
 # Сохранение игры
 func save_game() -> void:
@@ -104,12 +98,10 @@ func save_game() -> void:
 	if file:
 		file.store_var(save_data)
 		file.close()
-		print("Game saved!")
 
 # Загрузка игры
 func load_game() -> void:
 	if not FileAccess.file_exists(SAVE_FILE):
-		print("No save file found, starting new game")
 		return
 	
 	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
@@ -124,10 +116,8 @@ func load_game() -> void:
 		current_wave = save_data.get("current_wave", 1)
 		coins = save_data.get("coins", 0)
 		artifacts = save_data.get("artifacts", 0)
-		
-		print("Game loaded!")
 
-# Сброс прогресса (новая игра)
+# Сброс прогресса
 func reset_progress() -> void:
 	player_level = 1
 	current_exp = 0
@@ -137,3 +127,4 @@ func reset_progress() -> void:
 	kills_this_wave = 0
 	coins = 0
 	artifacts = 0
+	emit_stats()

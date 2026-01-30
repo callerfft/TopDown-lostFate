@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://38dyvpqnp08u"]
+
+[ext_resource type="PackedScene" uid="uid://b6d5okop6n32g" path="res://holy.tscn" id="1_mmcd4"]
+[ext_resource type="Script" uid="uid://h512btifdten" path="res://blood_scene.gd" id="1_tqafs"]
+
+[node name="bloodScene" type="Node2D"]
+script = ExtResource("1_tqafs")
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("1_mmcd4")]
+animation = &"blood"
+autoplay = "blood"
+frame = 0
+frame_progress = 0.0
