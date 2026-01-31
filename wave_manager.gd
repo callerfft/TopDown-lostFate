@@ -3,7 +3,8 @@ extends Node
 @export var orc_scene: PackedScene
 
 var enemies_alive: int = 0
-var enemies_to_spawn: int = 13
+var enemies_to_spawn: int = 0
+var enemies_spawned_this_wave: int = 0
 var is_wave_active: bool = false
 var spawn_timer: Timer
 var wave_timer: Timer
@@ -15,7 +16,7 @@ signal all_enemies_killed()
 
 func _ready() -> void:
 	spawn_timer = Timer.new()
-	spawn_timer.wait_time = 2.0
+	spawn_timer.wait_time = 0.5  # Каждые 2 секунды спавнится враг
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	add_child(spawn_timer)
 	
@@ -24,14 +25,23 @@ func _ready() -> void:
 	wave_timer.timeout.connect(_on_wave_timer_timeout)
 	add_child(wave_timer)
 	
-	enemies_to_spawn = calculate_enemies_for_wave(GameManager.current_wave)
 	start_wave()
 
 func start_wave() -> void:
 	is_wave_active = true
 	can_skip_timer = false
+	
+	# Рассчитываем сколько врагов нужно заспавнить
 	enemies_to_spawn = calculate_enemies_for_wave(GameManager.current_wave)
+	enemies_spawned_this_wave = 0
+	enemies_alive = 0
+	
+	print("=== WAVE ", GameManager.current_wave, " STARTED ===")
+	print("Enemies to spawn: ", enemies_to_spawn)
+	
 	wave_started.emit(GameManager.current_wave)
+	
+	# Запускаем таймер спавна
 	spawn_timer.start()
 
 func calculate_enemies_for_wave(wave: int) -> int:
@@ -41,11 +51,15 @@ func calculate_enemies_for_wave(wave: int) -> int:
 		return 60
 
 func _on_spawn_timer_timeout() -> void:
-	if enemies_to_spawn > 0:
+	if enemies_spawned_this_wave < enemies_to_spawn:
 		spawn_enemy()
-		enemies_to_spawn -= 1
+		enemies_spawned_this_wave += 1
+		print("Spawned ", enemies_spawned_this_wave, " / ", enemies_to_spawn)
 	else:
+		# Все враги заспавнены - останавливаем таймер
 		spawn_timer.stop()
+		print("✅ All enemies spawned! Waiting for player to kill them all...")
+
 func spawn_enemy() -> void:
 	if not orc_scene:
 		push_error("Orc scene not assigned!")
@@ -64,34 +78,32 @@ func spawn_enemy() -> void:
 	enemy.global_position = spawn_pos
 	
 	enemies_alive += 1
+
+func on_enemy_killed() -> void:
+	if enemies_alive <= 0:
+		print("⚠️ Warning: on_enemy_killed called but no enemies alive!")
+		return
 	
-	print("Enemy spawned at ", spawn_pos)
-	
-	# Подключаем сигнал с проверкой
-	if not enemy.enemy_died.is_connected(_on_enemy_died):
-		enemy.enemy_died.connect(_on_enemy_died)
-		print("Signal enemy_died connected successfully")
-	else:
-		print("WARNING: Signal already connected!")
-func _on_enemy_died() -> void:
 	enemies_alive -= 1
-	print("=== ENEMY DIED ===")
-	print("Enemies alive: ", enemies_alive)
-	print("Calling GameManager.add_kill()")
-	
 	GameManager.add_kill()
 	
-	print("Total kills now: ", GameManager.total_kills)
-	print("==================")
+	print("💀 Enemy killed! Alive: ", enemies_alive, " / ", enemies_spawned_this_wave)
 	
-	if enemies_alive <= 0 and enemies_to_spawn <= 0 and is_wave_active:
+	# Проверяем - все враги убиты И все заспавнены?
+	if enemies_alive <= 0 and enemies_spawned_this_wave >= enemies_to_spawn and is_wave_active:
 		end_wave()
 
 func end_wave() -> void:
 	is_wave_active = false
+	spawn_timer.stop()  # На всякий случай останавливаем
+	
+	print("🎉 WAVE ", GameManager.current_wave, " COMPLETED!")
+	print("Starting 59 second timer...")
+	
 	wave_completed.emit()
 	all_enemies_killed.emit()
 	
+	# Запускаем таймер до следующей волны
 	wave_timer.wait_time = 59.0
 	wave_timer.start()
 	can_skip_timer = true

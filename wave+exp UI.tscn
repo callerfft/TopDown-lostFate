@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgo358c4e7dwp"]
+[gd_scene load_steps=3 format=3 uid="uid://bgo358c4e7dwp"]
 
 [ext_resource type="Script" uid="uid://up2qiyoc2p13" path="res://ui.gd" id="1_2yfm1"]
+[ext_resource type="Script" uid="uid://bx6gnex4nv7px" path="res://upgrade_menu.gd" id="2_wh6u3"]
 
 [node name="wave + exp UI" type="CanvasLayer" groups=["wave_manager"]]
 
@@ -9,7 +10,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1116.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2yfm1")
@@ -71,3 +71,148 @@ theme_override_font_sizes/font_size = 21
 [node name="SkipButton" type="Button" parent="UI/WaveTimerContainer"]
 layout_mode = 2
 text = "skip"
+
+[node name="UpgradeMenu" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_wh6u3")
+
+[node name="background" type="ColorRect" parent="UI/UpgradeMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.47843137)
+
+[node name="title" type="Label" parent="UI/UpgradeMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -255.0
+offset_right = 108.0
+offset_bottom = -232.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "level up! choose an upgrade"
+horizontal_alignment = 1
+
+[node name="UpgradesContainer" type="HBoxContainer" parent="UI/UpgradeMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -33.0
+offset_right = 20.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="UpgradeCard1" type="VBoxContainer" parent="UI/UpgradeMenu/UpgradesContainer"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard1"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "upgrade"
+
+[node name="Icon" type="ColorRect" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard1"]
+custom_minimum_size = Vector2(12.655, 100)
+layout_mode = 2
+color = Color(0.47012013, 0.32419878, 1, 1)
+
+[node name="Description" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard1"]
+layout_mode = 2
+text = "somehow description"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard1"]
+custom_minimum_size = Vector2(0.95, 17.265)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SelectButton" type="Button" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "select"
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="UpgradeCard2" type="VBoxContainer" parent="UI/UpgradeMenu/UpgradesContainer"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "upgrade"
+
+[node name="Icon" type="ColorRect" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard2"]
+custom_minimum_size = Vector2(12.655, 100)
+layout_mode = 2
+color = Color(0.47012013, 0.32419878, 1, 1)
+
+[node name="Description" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard2"]
+layout_mode = 2
+text = "somehow description"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard2"]
+custom_minimum_size = Vector2(0.95, 17.265)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SelectButton" type="Button" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "select"
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="UpgradeCard3" type="VBoxContainer" parent="UI/UpgradeMenu/UpgradesContainer"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard3"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "upgrade"
+
+[node name="Icon" type="ColorRect" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard3"]
+custom_minimum_size = Vector2(12.655, 100)
+layout_mode = 2
+color = Color(0.47012013, 0.32419878, 1, 1)
+
+[node name="Description" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard3"]
+layout_mode = 2
+text = "somehow description"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard3"]
+custom_minimum_size = Vector2(0.95, 17.265)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SelectButton" type="Button" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "select"
+icon_alignment = 1
+vertical_icon_alignment = 2
