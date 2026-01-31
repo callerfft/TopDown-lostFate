@@ -6,8 +6,9 @@ signal health_changed(new_hp: int)
 @onready var pause_button: Button = $"../pauseSystem/CanvasLayer/pauseButton"
 @onready var health_bar: ProgressBar = $HealthBar
 @export var max_hp := 5  
+@onready var waveUI: CanvasLayer = $"../wave + exp UI"
 
-
+#var waveUI.visible = true
 #@export var regen_amount := 1
 #@export var regen_delay := 2.0   # сек после урона
 #@export var regen_interval := 1.0 # шаг регена
@@ -33,6 +34,7 @@ func _input(event: InputEvent) -> void:
 	health_bar.health = hp
 func _ready():
 	get_tree().paused = false
+	waveUI.visible = true
 	death_screen.visible = false
 	pause_button.visible = true
 	timer.start()
@@ -79,9 +81,10 @@ func take_damage():
 	$AnimationPlayer.play("hurt")
 	
 	print(hp)
-	health_bar.health = hp 
+	health_bar.health = hp     #death
 	if hp <= 0:
 		get_tree().paused = true
+		waveUI.visible = false
 		death_screen.visible = true
 		pause_button.visible = false
 func _physics_process(_delta: float) -> void:

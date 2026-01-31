@@ -9,6 +9,7 @@ signal enemy_died
 
 var speed = 100
 var is_dead = false
+var has_notified_wave_manager = false  # Добавили флаг
 var drop_chance: float = 0.3
 
 func _ready() -> void:
@@ -44,20 +45,39 @@ func _on_area_2d_area_entered(_area: Area2D) -> void:
 	is_dead = true
 	speed = 0
 	
+	# Отключаем все коллизии
+	for child in get_children():
+		if child is CollisionShape2D:
+			child.set_deferred("disabled", true)
+	
+	if has_node("Area2D"):
+		$Area2D.set_deferred("monitoring", false)
+		$Area2D.set_deferred("monitorable", false)
+	
 	if has_node("orcSound"):
 		$orcSound.play()
 	
 	animated_sprite_2d.play("hurt")
 	
-	# Все спавны делаем через call_deferred
 	call_deferred("spawn_effects")
-	
-	print("killed")
-	enemy_died.emit()
+	call_deferred("notify_wave_manager")
 	
 	await animated_sprite_2d.animation_finished
 	
 	queue_free()
+
+func notify_wave_manager() -> void:
+	# Проверяем флаг - уже вызывали?
+	if has_notified_wave_manager:
+		print("⚠️ Already notified, skipping")
+		return
+	
+	has_notified_wave_manager = true
+	
+	var wave_mgr = get_tree().get_first_node_in_group("wave_manager")
+	if wave_mgr and wave_mgr.has_method("on_enemy_killed"):
+		print("✅ Notifying wave manager (ONCE)")
+		wave_mgr.on_enemy_killed()
 
 func spawn_effects() -> void:
 	spawn_blood()
@@ -87,7 +107,6 @@ func spawn_drop() -> void:
 		get_parent().add_child(drop_instance)
 		drop_instance.global_position = global_position
 		
-		# Небольшой отброс
 		var random_offset = Vector2(randf_range(-30, 30), randf_range(-30, 30))
 		var tween = create_tween()
 		tween.tween_property(drop_instance, "global_position", global_position + random_offset, 0.3).set_ease(Tween.EASE_OUT)
