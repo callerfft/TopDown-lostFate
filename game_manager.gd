@@ -14,39 +14,50 @@ var kills_this_wave: int = 0
 var coins: int = 0
 var artifacts: int = 0
 
-# Путь к файлу сохранения
+# === НОВОЕ: Улучшения игрока ===
+var upgrades = {
+	"max_hp": 5,
+	"current_hp": 5,
+	"move_speed": 100,
+	"damage_multiplier": 1.0,
+	"attack_speed_multiplier": 1.0,
+	
+	# Способности
+	"has_dash": false,
+	"has_heal": false,
+	"has_shield": false,
+	
+	# Постройки
+	"turret_count": 0,
+	"trap_count": 0,
+	"wall_count": 0
+}
+
 const SAVE_FILE = "user://savegame.save"
 
-# Сигналы для UI
-signal stats_updated  # ОДИН сигнал для всего
+signal stats_updated
 signal level_up(new_level)
+signal show_upgrade_menu  # Новый сигнал для показа меню улучшений
 
 func _ready() -> void:
 	load_game()
-	# Не ждем кадр, сразу обновляем
 	emit_stats()
 
-# Единая функция обновления статистики
 func emit_stats() -> void:
 	stats_updated.emit()
 
-# Добавить опыт
 func add_exp(amount: int) -> void:
 	current_exp += amount
 	
-	# Проверка повышения уровня
 	while current_exp >= exp_to_next_level:
 		increase_level()
 	
-	# Обновляем UI один раз
 	emit_stats()
 
-# Повышение уровня
 func increase_level() -> void:
 	player_level += 1
 	current_exp -= exp_to_next_level
 	
-	# Расчет опыта для следующего уровня
 	if player_level <= 10:
 		exp_to_next_level = 100
 	elif player_level <= 20:
@@ -55,34 +66,56 @@ func increase_level() -> void:
 		exp_to_next_level = 300
 	
 	level_up.emit(player_level)
- 
+	
+	# Показываем меню улучшений при повышении уровня
+	show_upgrade_menu.emit()
+
 func add_kill() -> void:
 	total_kills += 1
 	kills_this_wave += 1
-	
-	print(">>> GameManager.add_kill() called! Total: ", total_kills)
-	
-	# Добавляем опыт за убийство (это вызовет emit_stats)
-	add_exp(2)
+	add_exp(20)
 
-
-# Следующая волна
 func next_wave() -> void:
 	current_wave += 1
 	kills_this_wave = 0
 	emit_stats()
 
-# Добавить монеты
 func add_coins(amount: int) -> void:
 	coins += amount
 	emit_stats()
 
-# Добавить артефакты
 func add_artifacts(amount: int) -> void:
 	artifacts += amount
 	emit_stats()
 
-# Сохранение игры
+# === НОВОЕ: Применить улучшение ===
+func apply_upgrade(upgrade_type: String) -> void:
+	match upgrade_type:
+		"increase_max_hp":
+			upgrades.max_hp += 1
+			upgrades.current_hp = upgrades.max_hp
+		"increase_speed":
+			upgrades.move_speed += 20
+		"increase_damage":
+			upgrades.damage_multiplier += 0.2
+		"increase_attack_speed":
+			upgrades.attack_speed_multiplier += 0.15
+		"unlock_dash":
+			upgrades.has_dash = true
+		"unlock_heal":
+			upgrades.has_heal = true
+		"unlock_shield":
+			upgrades.has_shield = true
+		"build_turret":
+			upgrades.turret_count += 1
+		"build_trap":
+			upgrades.trap_count += 1
+		"build_wall":
+			upgrades.wall_count += 1
+	
+	print("✅ Upgrade applied: ", upgrade_type)
+	emit_stats()
+
 func save_game() -> void:
 	var save_data = {
 		"player_level": player_level,
@@ -91,7 +124,8 @@ func save_game() -> void:
 		"total_kills": total_kills,
 		"current_wave": current_wave,
 		"coins": coins,
-		"artifacts": artifacts
+		"artifacts": artifacts,
+		"upgrades": upgrades
 	}
 	
 	var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
@@ -99,7 +133,6 @@ func save_game() -> void:
 		file.store_var(save_data)
 		file.close()
 
-# Загрузка игры
 func load_game() -> void:
 	if not FileAccess.file_exists(SAVE_FILE):
 		return
@@ -116,15 +149,28 @@ func load_game() -> void:
 		current_wave = save_data.get("current_wave", 1)
 		coins = save_data.get("coins", 0)
 		artifacts = save_data.get("artifacts", 0)
+		upgrades = save_data.get("upgrades", upgrades)
 
-# Сброс прогресса
 func reset_progress() -> void:
 	player_level = 1
 	current_exp = 0
-	exp_to_next_level = 100
+	exp_to_next_level = 4
 	total_kills = 0
 	current_wave = 1
 	kills_this_wave = 0
 	coins = 0
 	artifacts = 0
+	upgrades = {
+		"max_hp": 5,
+		"current_hp": 5,
+		"move_speed": 100,
+		"damage_multiplier": 1.0,
+		"attack_speed_multiplier": 1.0,
+		"has_dash": false,
+		"has_heal": false,
+		"has_shield": false,
+		"turret_count": 0,
+		"trap_count": 0,
+		"wall_count": 0
+	}
 	emit_stats()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bwd4w87xmj16h"]
+[gd_scene load_steps=30 format=4 uid="uid://bwd4w87xmj16h"]
 
 [ext_resource type="Texture2D" uid="uid://jxxd7m2sxmc0" path="res://map/mapLayer/TX Tileset Grass.png" id="1_yx4x3"]
 [ext_resource type="Texture2D" uid="uid://bchfti3x0lmm6" path="res://map/mapLayer/TX Struct.png" id="2_x0n1c"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bw6csot1axsuv" path="res://tscn/pause.tscn" id="5_x0n1c"]
 [ext_resource type="PackedScene" uid="uid://dy6top44sf72c" path="res://tscn/touch_joystick.tscn" id="7_1f6fc"]
 [ext_resource type="PackedScene" uid="uid://ph1jeq42n61p" path="res://tscn/timer_on_screen.tscn" id="8_bhkyt"]
-[ext_resource type="PackedScene" uid="uid://cciswq2npo5d1" path="res://mobs/enemy_spawner.tscn" id="8_ghqhn"]
 [ext_resource type="Texture2D" uid="uid://dx4ykaxact3wa" path="res://map/light.png" id="10_r7qdg"]
 [ext_resource type="PackedScene" uid="uid://tmmme5hmnt4o" path="res://tscn/regen_zone.tscn" id="11_fd4qy"]
 [ext_resource type="PackedScene" uid="uid://btwotx1f2upi4" path="res://tscn/fps_c.tscn" id="12_q5imy"]
@@ -2012,8 +2011,6 @@ offset_bottom = 40.0
 
 [node name="timerOnScreen" parent="." instance=ExtResource("8_bhkyt")]
 
-[node name="enemySpawner" parent="." instance=ExtResource("8_ghqhn")]
-
 [node name="player" parent="." instance=ExtResource("4_1f6fc")]
 position = Vector2(47, 5)
 collision_layer = 2
@@ -2040,7 +2037,7 @@ stream = ExtResource("14_bhc64")
 autoplay = true
 script = ExtResource("15_ouipm")
 
-[node name="WaveManager" parent="." instance=ExtResource("16_ouipm")]
+[node name="WaveManager" parent="." groups=["wave_manager"] instance=ExtResource("16_ouipm")]
 
 [node name="wave + exp UI" parent="." instance=ExtResource("17_8yf2x")]
 
