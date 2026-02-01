@@ -76,6 +76,7 @@ layout_mode = 2
 text = "skip"
 
 [node name="UpgradeMenu" type="Control" parent="UI"]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,98 +125,105 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 
-[node name="UpgradeCard1" type="VBoxContainer" parent="UI/UpgradeMenu/UpgradesContainer"]
+[node name="card1_button" type="VBoxContainer" parent="UI/UpgradeMenu/UpgradesContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 350)
 layout_mode = 2
 
-[node name="Name" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard1"]
+[node name="Name" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/card1_button"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "upgrade"
+text = "upgrade1"
 
-[node name="Icon" type="ColorRect" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard1"]
+[node name="Icon" type="ColorRect" parent="UI/UpgradeMenu/UpgradesContainer/card1_button"]
 custom_minimum_size = Vector2(12.655, 100)
 layout_mode = 2
 color = Color(0.47012013, 0.32419878, 1, 1)
 
-[node name="Description" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard1"]
+[node name="Description" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/card1_button"]
 layout_mode = 2
-text = "somehow description"
+text = "somehow descript"
 horizontal_alignment = 1
 
-[node name="Panel" type="Panel" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard1"]
+[node name="Panel" type="Panel" parent="UI/UpgradeMenu/UpgradesContainer/card1_button"]
 custom_minimum_size = Vector2(0.95, 17.265)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SelectButton" type="Button" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard1"]
+[node name="SelectButton" type="Button" parent="UI/UpgradeMenu/UpgradesContainer/card1_button"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "select"
+text = "select1"
 icon_alignment = 1
 vertical_icon_alignment = 2
 
-[node name="UpgradeCard2" type="VBoxContainer" parent="UI/UpgradeMenu/UpgradesContainer"]
+[node name="card2_button" type="VBoxContainer" parent="UI/UpgradeMenu/UpgradesContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 350)
 layout_mode = 2
 
-[node name="Name" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard2"]
+[node name="Name" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/card2_button"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "upgrade"
 
-[node name="Icon" type="ColorRect" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard2"]
+[node name="Icon" type="ColorRect" parent="UI/UpgradeMenu/UpgradesContainer/card2_button"]
 custom_minimum_size = Vector2(12.655, 100)
 layout_mode = 2
 color = Color(0.47012013, 0.32419878, 1, 1)
 
-[node name="Description" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard2"]
+[node name="Description" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/card2_button"]
 layout_mode = 2
-text = "somehow description"
+text = "somehow descriptio"
 horizontal_alignment = 1
 
-[node name="Panel" type="Panel" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard2"]
+[node name="Panel" type="Panel" parent="UI/UpgradeMenu/UpgradesContainer/card2_button"]
 custom_minimum_size = Vector2(0.95, 17.265)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SelectButton" type="Button" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard2"]
+[node name="SelectButton" type="Button" parent="UI/UpgradeMenu/UpgradesContainer/card2_button"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "select"
+text = "select2"
 icon_alignment = 1
 vertical_icon_alignment = 2
 
-[node name="UpgradeCard3" type="VBoxContainer" parent="UI/UpgradeMenu/UpgradesContainer"]
+[node name="card3_button" type="VBoxContainer" parent="UI/UpgradeMenu/UpgradesContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 350)
 layout_mode = 2
 
-[node name="Name" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard3"]
+[node name="Name" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/card3_button"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "upgrade"
+text = "upgrade3"
 
-[node name="Icon" type="ColorRect" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard3"]
+[node name="Icon" type="ColorRect" parent="UI/UpgradeMenu/UpgradesContainer/card3_button"]
 custom_minimum_size = Vector2(12.655, 100)
 layout_mode = 2
 color = Color(0.47012013, 0.32419878, 1, 1)
 
-[node name="Description" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard3"]
+[node name="Description" type="Label" parent="UI/UpgradeMenu/UpgradesContainer/card3_button"]
 layout_mode = 2
-text = "somehow description"
+text = "somehow descripti"
 horizontal_alignment = 1
 
-[node name="Panel" type="Panel" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard3"]
+[node name="Panel" type="Panel" parent="UI/UpgradeMenu/UpgradesContainer/card3_button"]
 custom_minimum_size = Vector2(0.95, 17.265)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SelectButton" type="Button" parent="UI/UpgradeMenu/UpgradesContainer/UpgradeCard3"]
+[node name="SelectButton" type="Button" parent="UI/UpgradeMenu/UpgradesContainer/card3_button"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "select"
+text = "select3"
 icon_alignment = 1
 vertical_icon_alignment = 2
+
+[connection signal="pressed" from="UI/UpgradeMenu/UpgradesContainer/card1_button/SelectButton" to="UI/UpgradeMenu" method="_on_card1_button_pressed"]
+[connection signal="pressed" from="UI/UpgradeMenu/UpgradesContainer/card2_button/SelectButton" to="UI/UpgradeMenu" method="_on_card2_button_pressed"]
+[connection signal="pressed" from="UI/UpgradeMenu/UpgradesContainer/card3_button/SelectButton" to="UI/UpgradeMenu" method="_on_card3_button_pressed"]

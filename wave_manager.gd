@@ -16,7 +16,7 @@ signal all_enemies_killed()
 
 func _ready() -> void:
 	spawn_timer = Timer.new()
-	spawn_timer.wait_time = 0.5  # Каждые 2 секунды спавнится враг
+	spawn_timer.wait_time = 0.1 
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	add_child(spawn_timer)
 	
