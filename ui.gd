@@ -13,7 +13,9 @@ extends Control
 @onready var wave_timer_container: VBoxContainer = $WaveTimerContainer
 @onready var timer_label: Label = $WaveTimerContainer/TimerLabel
 @onready var skip_button: Button = $WaveTimerContainer/SkipButton
-
+# Добавь в начало с другими @onready
+@onready var hp_label: Label = $StatsContainer/HPLabel
+ 
 var wave_manager: Node
 
 func _ready() -> void:
@@ -57,7 +59,7 @@ func update_all_labels() -> void:
 	wave_label.text = "Wave: %d" % GameManager.current_wave
 	coins_label.text = "Coins: %d" % GameManager.coins
 	artifacts_label.text = "Artifacts: %d" % GameManager.artifacts
-
+	hp_label.text = "HP: %d / %d" % [GameManager.upgrades.current_hp, GameManager.upgrades.max_hp]
 func _on_level_up(new_level: int) -> void:
 	print("LEVEL UP! New level: %d" % new_level)
 
