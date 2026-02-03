@@ -88,7 +88,7 @@ func generate_random_upgrades() -> void:
 func update_card(index: int, name_label: Label, desc_label: Label) -> void:
 	if index >= current_options.size():
 		return
-	
+	#fdsgsgsgsgs
 	var upgrade_id = current_options[index]
 	var upgrade_data = all_upgrades[upgrade_id]
 	
