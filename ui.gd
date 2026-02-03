@@ -9,6 +9,11 @@ extends Control
 @onready var coins_label: Label = $StatsContainer/CoinsLabel
 @onready var artifacts_label: Label = $StatsContainer/ArtifactsLabel
 
+
+
+
+
+#fdsgsgsgsgs
 # Таймер волны
 @onready var wave_timer_container: VBoxContainer = $WaveTimerContainer
 @onready var timer_label: Label = $WaveTimerContainer/TimerLabel
