@@ -1,7 +1,7 @@
 extends Node
 
 @export var orc_scene: PackedScene
-
+#fdsgsgsgsgs
 var enemies_alive: int = 0
 var enemies_to_spawn: int = 0
 var enemies_spawned_this_wave: int = 0
