@@ -14,6 +14,10 @@ signal health_changed(new_hp: int)
 var max_hp: int:
 	get:
 		return GameManager.upgrades.max_hp
+  
+
+
+
 
 var hp: int:
 	get:
