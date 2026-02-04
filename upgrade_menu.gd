@@ -37,9 +37,20 @@ var all_upgrades = {
 	"unlock_shield": {
 		"name": "Unlock Shield",
 		"description": "Press G for shield"
+	},
+	"build_turret": {  # ← ВОТ ЭТО
+		"name": "Build Turret",
+		"description": "Auto-shooting turret (Press T)"
+	},
+	"build_trap": {
+		"name": "Build Trap",
+		"description": "Slows enemies (Press Y)"
+	},
+	"build_wall": {
+		"name": "Build Wall",
+		"description": "Blocks enemies (Press U)"
 	}
 }
-
 var current_options = []
 
 func _ready() -> void:

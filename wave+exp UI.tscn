@@ -54,6 +54,9 @@ theme_override_font_sizes/font_size = 21
 [node name="HPLabel" type="Label" parent="UI/StatsContainer"]
 layout_mode = 2
 
+[node name="turretCount" type="Label" parent="UI/StatsContainer"]
+layout_mode = 2
+
 [node name="WaveTimerContainer" type="VBoxContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 6

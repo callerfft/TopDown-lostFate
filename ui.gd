@@ -8,18 +8,12 @@ extends Control
 @onready var wave_label: Label = $StatsContainer/WaveLabel
 @onready var coins_label: Label = $StatsContainer/CoinsLabel
 @onready var artifacts_label: Label = $StatsContainer/ArtifactsLabel
-
-
-
-
-
-#fdsgsgsgsgs
-# Таймер волны
 @onready var wave_timer_container: VBoxContainer = $WaveTimerContainer
 @onready var timer_label: Label = $WaveTimerContainer/TimerLabel
 @onready var skip_button: Button = $WaveTimerContainer/SkipButton
 # Добавь в начало с другими @onready
 @onready var hp_label: Label = $StatsContainer/HPLabel
+@onready var turret_label: Label = $StatsContainer/turretCount
  
 var wave_manager: Node
 
@@ -58,6 +52,11 @@ func _process(_delta: float) -> void:
 
 # ОДНА функция обновления всего UI
 func update_all_labels() -> void:
+	if GameManager.upgrades.turret_count > 0:
+		turret_label.text = "Turrets: %d (T)" % GameManager.upgrades.turret_count
+		turret_label.visible = true
+	else:
+		turret_label.visible = false
 	kills_label.text = "Kills: %d" % GameManager.total_kills
 	level_label.text = "Level: %d" % GameManager.player_level
 	exp_label.text = "EXP: %d / %d" % [GameManager.current_exp, GameManager.exp_to_next_level]
