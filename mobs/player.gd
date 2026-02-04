@@ -9,16 +9,49 @@ signal health_changed(new_hp: int)
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var waveUI: CanvasLayer = $"../wave + exp UI"
 @onready var camera: Camera2D = $Camera2D
+# Добавь в начало с другими @export
+@export var turret_scene: PackedScene
+@export var trap_scene: PackedScene
+@export var wall_scene: PackedScene
 
+# Добавь в _process или создай отдельную функцию
+func handle_building() -> void:
+	# Турель (T)
+	if Input.is_action_just_pressed("build_turret") and GameManager.upgrades.turret_count > 0:
+		place_building(turret_scene)
+		GameManager.upgrades.turret_count -= 1
+		GameManager.emit_stats()
+	
+	# Ловушка (Y)
+	if Input.is_action_just_pressed("build_trap") and GameManager.upgrades.trap_count > 0:
+		place_building(trap_scene)
+		GameManager.upgrades.trap_count -= 1
+		GameManager.emit_stats()
+	
+	# Стена (U)
+	if Input.is_action_just_pressed("build_wall") and GameManager.upgrades.wall_count > 0:
+		place_building(wall_scene)
+		GameManager.upgrades.wall_count -= 1
+		GameManager.emit_stats()
+
+func place_building(building_scene: PackedScene) -> void:
+	if not building_scene:
+		print("❌ Building scene not assigned!")
+		return
+	
+	var building = building_scene.instantiate()
+	get_parent().add_child(building)
+	
+	# Размещаем перед игроком
+	var offset = Vector2(50, 0) * animated_sprite_2d.scale.x
+	building.global_position = global_position + offset
+	
+	print("🏗️ Building placed!")
 # Характеристики теперь из GameManager
 var max_hp: int:
 	get:
 		return GameManager.upgrades.max_hp
   
-
-
-
-
 var hp: int:
 	get:
 		return GameManager.upgrades.current_hp
@@ -73,7 +106,7 @@ func _input(event: InputEvent) -> void:
 		print("HP: ", hp)
 
 func _process(delta: float) -> void:
-	# Обновляем cooldown'ы способностей
+	
 	if dash_cooldown > 0:
 		dash_cooldown -= delta
 	if heal_cooldown > 0:
@@ -83,7 +116,7 @@ func _process(delta: float) -> void:
 	
 	# Используем способности
 	handle_abilities()
-	
+	handle_building() 
 	# Движение
 	if not is_dashing:
 		handle_movement()
@@ -220,7 +253,6 @@ func _on_hit_box_area_exited(area: Area2D) -> void:
 	if area == damage_area:
 		damage_area = null
 
-# Регенерация HP (из зон лечения)
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if hp < max_hp:
 		hp += 1
