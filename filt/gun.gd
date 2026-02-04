@@ -8,7 +8,7 @@ func _process(_delta: float) -> void:
 		scale.y = -1
 	else:
 		scale.y = 1
-	if Input.is_action_pressed("attack"):
+	if Input.is_action_just_pressed("attack"):
 		$"../sounds/shoot".play()
 		var bullet_instance = BULLET.instantiate()
 		get_tree().root.add_child(bullet_instance)
