@@ -1,8 +1,9 @@
-[gd_scene load_steps=39 format=3 uid="uid://by8d0pmeu1cob"]
+[gd_scene load_steps=40 format=3 uid="uid://by8d0pmeu1cob"]
 
 [ext_resource type="Script" uid="uid://chs77sxqqn4vy" path="res://mobs/player.gd" id="1_1qko1"]
 [ext_resource type="Texture2D" uid="uid://f5j1tk2vw14x" path="res://mobs/Soldier.png" id="1_3u3ij"]
 [ext_resource type="Shader" uid="uid://cxw0yxi1vhvad" path="res://mobs/player.gdshader" id="2_5byi2"]
+[ext_resource type="PackedScene" uid="uid://co8veua5w3wd4" path="res://mobs/tower/turret.tscn" id="2_g2xol"]
 [ext_resource type="Script" uid="uid://bbkocr601f31p" path="res://mobs/camera_2d.gd" id="2_p48md"]
 [ext_resource type="PackedScene" uid="uid://cun1chgupktyd" path="res://mobs/guns/sword.tscn" id="3_cmhbq"]
 [ext_resource type="PackedScene" uid="uid://cgfahnqrpl3p3" path="res://menus/death_screen.tscn" id="5_w53sm"]
@@ -226,6 +227,7 @@ height = 18.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_1qko1")
+turret_scene = ExtResource("2_g2xol")
 
 [node name="regen" type="Area2D" parent="."]
 collision_layer = 256
