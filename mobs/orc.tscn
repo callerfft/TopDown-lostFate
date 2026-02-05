@@ -156,7 +156,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_85irk"]
 
-[node name="orc" type="CharacterBody2D"]
+[node name="orc" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_q5rie")
 blood_effect_scene = ExtResource("2_347kl")
 coin_scene = ExtResource("2_qed8s")
