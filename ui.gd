@@ -18,14 +18,12 @@ extends Control
 var wave_manager: Node
 
 func _ready() -> void:
-	# Подключаем ОДИН сигнал вместо 6
+ 
 	GameManager.stats_updated.connect(update_all_labels)
 	GameManager.level_up.connect(_on_level_up)
-	
-	# Находим WaveManager с задержкой
+	 
 	call_deferred("setup_wave_manager")
-	
-	# Подключаем кнопку
+	 
 	skip_button.pressed.connect(_on_skip_button_pressed)
 	
 	# Инициализируем UI

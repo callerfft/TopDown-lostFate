@@ -89,9 +89,9 @@ func _ready():
 	death_screen.visible = false
 	pause_button.visible = true
 	timer.start()
-	GameManager.upgrades.turret_count = 5
+	GameManager.upgrades.turret_count = 99
 	GameManager.emit_stats()
-	print("🎁 Given 5 turrets for testing")
+	print("turrets for testing")
 	
 	# Инициализируем HP из GameManager
 	health_bar.init_health(hp)

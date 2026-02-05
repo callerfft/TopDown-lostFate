@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://qlhxx547hsmv"]
+
+[ext_resource type="Script" uid="uid://bojsd0dqt305" path="res://area_2d.gd" id="1_vw15d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yca3s"]
+
+[node name="turret_bullet" type="Area2D"]
+script = ExtResource("1_vw15d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yca3s")
+
+[node name="Timer" type="Timer" parent="."]

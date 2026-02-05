@@ -87,7 +87,7 @@ func on_enemy_killed() -> void:
 	enemies_alive -= 1
 	GameManager.add_kill()
 	
-	print("💀 Enemy killed! Alive: ", enemies_alive, " / ", enemies_spawned_this_wave)
+	print("Enemy killed! Alive: ", enemies_alive, " / ", enemies_spawned_this_wave)
 	
 	# Проверяем - все враги убиты И все заспавнены?
 	if enemies_alive <= 0 and enemies_spawned_this_wave >= enemies_to_spawn and is_wave_active:
@@ -97,7 +97,7 @@ func end_wave() -> void:
 	is_wave_active = false
 	spawn_timer.stop()  # На всякий случай останавливаем
 	
-	print("🎉 WAVE ", GameManager.current_wave, " COMPLETED!")
+	print("WAVE ", GameManager.current_wave, " COMPLETED!")
 	print("Starting 59 second timer...")
 	
 	wave_completed.emit()

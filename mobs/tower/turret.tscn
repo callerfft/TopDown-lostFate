@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://co8veua5w3wd4"]
 
 [ext_resource type="Script" uid="uid://bob0575tf7ij7" path="res://turret.gd" id="1_kvqu6"]
-[ext_resource type="PackedScene" uid="uid://byh5xqsrt8dcu" path="res://mobs/guns/ammo.tscn" id="2_ke7fb"]
+[ext_resource type="PackedScene" uid="uid://qlhxx547hsmv" path="res://mobs/tower/turret_bullet.tscn" id="2_kvqu6"]
 [ext_resource type="Texture2D" uid="uid://daw6042w1dh4l" path="res://mobs/tower/turret_02_mk1.png" id="3_fe103"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lpkur"]
@@ -84,7 +84,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_po2ac")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
 "speed": 37.0
 }]
@@ -96,19 +96,25 @@ radius = 228.10744
 
 [node name="turret" type="StaticBody2D"]
 script = ExtResource("1_kvqu6")
-bullet_scene = ExtResource("2_ke7fb")
+bullet_scene = ExtResource("2_kvqu6")
+detection_range = 315.295
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.359375, 0.20312501)
 sprite_frames = SubResource("SpriteFrames_6aego")
+autoplay = "default"
 frame = 10
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_j6exr")
+metadata/_edit_lock_ = true
 
 [node name="shootTimer" type="Timer" parent="."]
 
 [node name="directionArea" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="directionArea"]
 shape = SubResource("CircleShape2D_2nm7p")
+metadata/_edit_lock_ = true
