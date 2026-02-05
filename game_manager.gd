@@ -1,24 +1,20 @@
 extends Node
-
-# Статистика игрока
+ 
 var player_level: int = 1
 var current_exp: int = 0
 var exp_to_next_level: int = 100
 var total_kills: int = 0
-
-# Прогресс игры
+ 
 var current_wave: int = 1
 var kills_this_wave: int = 0
-
-# Собранные ресурсы
+ 
 var coins: int = 0
 var artifacts: int = 0
-
-# === НОВОЕ: Улучшения игрока ===
+ 
 var upgrades = {
 	"max_hp": 5,
 	"current_hp": 5,
-	"move_speed": 100,
+	"move_speed": 200,
 	"damage_multiplier": 1.0,
 	"attack_speed_multiplier": 1.0,
 	
