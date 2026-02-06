@@ -55,7 +55,7 @@ func increase_level() -> void:
 	current_exp -= exp_to_next_level
 	
 	if player_level <= 10:
-		exp_to_next_level = 100
+		exp_to_next_level = 10000
 	elif player_level <= 20:
 		exp_to_next_level = 200
 	else:
