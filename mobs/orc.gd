@@ -107,6 +107,6 @@ func spawn_drop() -> void:
 		get_parent().add_child(drop_instance)
 		drop_instance.global_position = global_position
 		
-		var random_offset = Vector2(randf_range(-30, 30), randf_range(-30, 30))
+		var random_offset = Vector2(randf_range(-12, 12), randf_range(-12, 12))
 		var tween = create_tween()
 		tween.tween_property(drop_instance, "global_position", global_position + random_offset, 0.3).set_ease(Tween.EASE_OUT)
