@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://ybxtopsdvrbd"]
+[gd_scene load_steps=28 format=3 uid="uid://ybxtopsdvrbd"]
 
 [ext_resource type="Texture2D" uid="uid://ctu1ft50h501c" path="res://mobs/Orc.png" id="1_1c74i"]
 [ext_resource type="Script" uid="uid://dpdjbbyqw5ry7" path="res://mobs/orc.gd" id="1_q5rie"]
 [ext_resource type="PackedScene" uid="uid://38dyvpqnp08u" path="res://blood_scene.tscn" id="2_347kl"]
 [ext_resource type="PackedScene" uid="uid://nedp2i43t8il" path="res://coin.tscn" id="2_qed8s"]
 [ext_resource type="AudioStream" uid="uid://bdvxoa42gg8om" path="res://Skeleton_attack_тАУ_Bo_#3-1766768181651.mp3" id="3_85irk"]
+[ext_resource type="Texture2D" uid="uid://dx4ykaxact3wa" path="res://map/light.png" id="6_17h1c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5rie"]
 radius = 6.0
@@ -161,6 +162,14 @@ script = ExtResource("1_q5rie")
 blood_effect_scene = ExtResource("2_347kl")
 coin_scene = ExtResource("2_qed8s")
 
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = -389.0
+offset_top = -357.0
+offset_right = -200.36
+offset_bottom = -185.92
+scale = Vector2(4.13, 4.13)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 3
 shape = SubResource("CapsuleShape2D_q5rie")
@@ -180,5 +189,12 @@ shape = SubResource("CircleShape2D_85irk")
 [node name="orcSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_85irk")
 volume_db = -13.33
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0, 0, 1)
+energy = 0.72
+texture = ExtResource("6_17h1c")
+texture_scale = 0.44
+height = 471.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
