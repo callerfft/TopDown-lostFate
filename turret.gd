@@ -5,7 +5,7 @@ extends StaticBody2D
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 @export var bullet_scene: PackedScene
 @export var shoot_interval: float = 1.0
-@export var detection_range: float = 300.0
+@export var detection_range: float = 700.0
 
 var enemies_in_range = []
 var current_target: Node2D = null

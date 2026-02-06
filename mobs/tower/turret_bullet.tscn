@@ -1,15 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://qlhxx547hsmv"]
+[gd_scene load_steps=5 format=3 uid="uid://qlhxx547hsmv"]
 
 [ext_resource type="Script" uid="uid://bojsd0dqt305" path="res://area_2d.gd" id="1_vw15d"]
+[ext_resource type="Texture2D" uid="uid://dc1qfekurwwxp" path="res://mobs/tower/All_Fire_Bullet_Pixel_16x16_05.png" id="2_yca3s"]
+[ext_resource type="Texture2D" uid="uid://dx4ykaxact3wa" path="res://map/light.png" id="3_po7df"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yca3s"]
 
 [node name="turret_bullet" type="Area2D"]
 script = ExtResource("1_vw15d")
 
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = -389.0
+offset_top = -357.0
+offset_right = -200.36
+offset_bottom = -185.92
+scale = Vector2(4.13, 4.13)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2.3841858e-07)
+scale = Vector2(0.38888893, 0.47368422)
+texture = ExtResource("2_yca3s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yca3s")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 5.96
+autostart = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-2.9999998, 0)
+scale = Vector2(0.15820314, 0.08203124)
+energy = 0.45
+texture = ExtResource("3_po7df")

@@ -2030,7 +2030,7 @@ script = null
 [node name="fpsC" parent="." instance=ExtResource("12_q5imy")]
 
 [node name="orc" parent="." instance=ExtResource("13_e1ltc")]
-position = Vector2(254, 46)
+position = Vector2(-177, 156)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

@@ -100,6 +100,7 @@ bullet_scene = ExtResource("2_kvqu6")
 detection_range = 315.295
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5707964
 scale = Vector2(0.359375, 0.20312501)
 sprite_frames = SubResource("SpriteFrames_6aego")
 autoplay = "default"
@@ -108,13 +109,11 @@ frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_j6exr")
-metadata/_edit_lock_ = true
 
 [node name="shootTimer" type="Timer" parent="."]
+wait_time = 0.46
 
 [node name="directionArea" type="Area2D" parent="."]
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="directionArea"]
 shape = SubResource("CircleShape2D_2nm7p")
-metadata/_edit_lock_ = true
