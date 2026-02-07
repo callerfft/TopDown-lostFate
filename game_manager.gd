@@ -33,7 +33,7 @@ const SAVE_FILE = "user://savegame.save"
 
 signal stats_updated
 signal level_up(new_level)
-signal show_upgrade_menu  # Новый сигнал для показа меню улучшений
+signal show_upgrade_menu  
 
 func _ready() -> void:
 	load_game()
@@ -62,8 +62,7 @@ func increase_level() -> void:
 		exp_to_next_level = 300
 	
 	level_up.emit(player_level)
-	
-	# Показываем меню улучшений при повышении уровня
+	 
 	show_upgrade_menu.emit()
 
 func add_kill() -> void:
@@ -83,8 +82,7 @@ func add_coins(amount: int) -> void:
 func add_artifacts(amount: int) -> void:
 	artifacts += amount
 	emit_stats()
-
-# === НОВОЕ: Применить улучшение ===
+ 
 func apply_upgrade(upgrade_type: String) -> void:
 	match upgrade_type:
 		"increase_max_hp":
