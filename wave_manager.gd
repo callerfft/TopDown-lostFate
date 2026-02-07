@@ -31,7 +31,7 @@ func start_wave() -> void:
 	is_wave_active = true
 	can_skip_timer = false
 	
-	# Рассчитываем сколько врагов нужно заспавнить
+	# расчет сколько врагов нужно заспавнить
 	enemies_to_spawn = calculate_enemies_for_wave(GameManager.current_wave)
 	enemies_spawned_this_wave = 0
 	enemies_alive = 0
@@ -41,7 +41,7 @@ func start_wave() -> void:
 	
 	wave_started.emit(GameManager.current_wave)
 	
-	# Запускаем таймер спавна
+	# Запуск таймер спавна
 	spawn_timer.start()
 
 func calculate_enemies_for_wave(wave: int) -> int:
@@ -56,7 +56,7 @@ func _on_spawn_timer_timeout() -> void:
 		enemies_spawned_this_wave += 1
 		print("Spawned ", enemies_spawned_this_wave, " / ", enemies_to_spawn)
 	else:
-		# Все враги заспавнены - останавливаем таймер
+		# Все враги заспавнены - ост  таймер
 		spawn_timer.stop()
 		print("✅ All enemies spawned! Waiting for player to kill them all...")
 
@@ -89,13 +89,13 @@ func on_enemy_killed() -> void:
 	
 	print("Enemy killed! Alive: ", enemies_alive, " / ", enemies_spawned_this_wave)
 	
-	# Проверяем - все враги убиты И все заспавнены?
+	# все враги убиты И все заспавнены?
 	if enemies_alive <= 0 and enemies_spawned_this_wave >= enemies_to_spawn and is_wave_active:
 		end_wave()
 
 func end_wave() -> void:
 	is_wave_active = false
-	spawn_timer.stop()  # На всякий случай останавливаем
+	spawn_timer.stop()  # На всякий ост 
 	
 	print("WAVE ", GameManager.current_wave, " COMPLETED!")
 	print("Starting 59 second timer...")
@@ -103,7 +103,7 @@ func end_wave() -> void:
 	wave_completed.emit()
 	all_enemies_killed.emit()
 	
-	# Запускаем таймер до следующей волны
+	# Запуск таймер до следующей волны
 	wave_timer.wait_time = 59.0
 	wave_timer.start()
 	can_skip_timer = true

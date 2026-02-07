@@ -2008,7 +2008,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="touchJoystick" parent="joystick" instance=ExtResource("7_1f6fc")]
-visible = false
 
 [node name="timerOnScreen" parent="." instance=ExtResource("8_bhkyt")]
 
