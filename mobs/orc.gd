@@ -9,7 +9,7 @@ signal enemy_died
 
 var speed = 100
 var is_dead = false
-var has_notified_wave_manager = false  # Добавили флаг
+var has_notified_wave_manager = false   
 var drop_chance: float = 0.3
 
 func _ready() -> void:
@@ -45,7 +45,7 @@ func _on_area_2d_area_entered(_area: Area2D) -> void:
 	is_dead = true
 	speed = 0
 	
-	# Отключаем все коллизии
+	# отключение всех коллизии
 	for child in get_children():
 		if child is CollisionShape2D:
 			child.set_deferred("disabled", true)
@@ -66,8 +66,7 @@ func _on_area_2d_area_entered(_area: Area2D) -> void:
 	
 	queue_free()
 
-func notify_wave_manager() -> void:
-	# Проверяем флаг - уже вызывали?
+func notify_wave_manager() -> void: 
 	if has_notified_wave_manager:
 		print("⚠️ Already notified, skipping")
 		return
