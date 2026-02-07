@@ -8,13 +8,11 @@ signal health_changed(new_hp: int)
 @onready var pause_button: Button = $"../pauseSystem/CanvasLayer/pauseButton"
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var waveUI: CanvasLayer = $"../wave + exp UI"
-@onready var camera: Camera2D = $Camera2D
-# Добавь в начало с другими @export
+@onready var camera: Camera2D = $Camera2D 
 @export var turret_scene: PackedScene
 @export var trap_scene: PackedScene
 @export var wall_scene: PackedScene
-
-# Добавь в _process или создай отдельную функцию
+ 
 func handle_building() -> void:
 	# Турель (T)
 	if Input.is_action_just_pressed("build_turret") and GameManager.upgrades.turret_count > 0:
@@ -41,13 +39,11 @@ func place_building(building_scene: PackedScene) -> void:
 	
 	var building = building_scene.instantiate()
 	get_parent().add_child(building)
-	
-	# Размещаем перед игроком
+	 
 	var offset = Vector2(50, 0) * animated_sprite_2d.scale.x
 	building.global_position = global_position + offset
 	
-	print("🏗️ Building placed!")
-# Характеристики теперь из GameManager
+	print("🏗️ Building placed!") 
 var max_hp: int:
 	get:
 		return GameManager.upgrades.max_hp
@@ -92,8 +88,7 @@ func _ready():
 	GameManager.upgrades.turret_count = 99
 	GameManager.emit_stats()
 	print("turrets for testing")
-	
-	# Инициализируем HP из GameManager
+	 
 	health_bar.init_health(hp)
 
 func _input(event: InputEvent) -> void:
@@ -117,7 +112,7 @@ func _process(delta: float) -> void:
 	if shield_cooldown > 0:
 		shield_cooldown -= delta
 	
-	# Используем способности
+	#  способности
 	handle_abilities()
 	handle_building() 
 	# Движение
@@ -169,7 +164,7 @@ func activate_dash() -> void:
 	
 	velocity = dash_direction.normalized() * dash_speed
 	
-	print("💨 Dash!")
+	print("Dash!")
 	$sounds/playerHurt.play()  # Можешь добавить отдельный звук для dash
 	
 	await get_tree().create_timer(dash_duration).timeout
@@ -198,7 +193,7 @@ func activate_shield() -> void:
 	print("🛡️ Shield deactivated")
 
 func take_damage():
-	# Проверяем щит
+	#   щит
 	if shield_active:
 		print("🛡️ Damage blocked by shield!")
 		return
@@ -236,7 +231,7 @@ func shake_camera() -> void:
 	tween.tween_property(camera, "offset", original_offset, shake_duration / 5.0)
 
 func die() -> void:
-	print("💀 Player died!")
+	print(" Player died!")
 	get_tree().paused = true
 	waveUI.visible = false
 	death_screen.visible = true
