@@ -47,15 +47,17 @@ func place_building(building_scene: PackedScene) -> void:
 var max_hp: int:
 	get:
 		return GameManager.upgrades.max_hp
-  
 var hp: int:
 	get:
 		return GameManager.upgrades.current_hp
 	set(value):
 		GameManager.upgrades.current_hp = clamp(value, 0, max_hp)
-		health_bar.health = GameManager.upgrades.current_hp
+		
+		 
+		if is_instance_valid(health_bar) and health_bar != null:
+			health_bar.health = GameManager.upgrades.current_hp
+		
 		health_changed.emit(GameManager.upgrades.current_hp)
-
 var max_speed: float:
 	get:
 		return GameManager.upgrades.move_speed
