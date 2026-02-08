@@ -18,7 +18,7 @@ extends Control
 var wave_manager: Node
 
 func _ready() -> void:
- 
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	GameManager.stats_updated.connect(update_all_labels)
 	GameManager.level_up.connect(_on_level_up)
 	 
@@ -39,7 +39,7 @@ func setup_wave_manager() -> void:
 			wave_manager.wave_started.connect(_on_wave_started)
 
 func _process(_delta: float) -> void:
-	# Обновляем таймер
+	# Обн  таймер
 	if wave_timer_container.visible and wave_manager:
 		var time_left = wave_manager.wave_timer.time_left
 		timer_label.text = "Next wave in: %d" % int(time_left)
