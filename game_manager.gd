@@ -29,6 +29,47 @@ var upgrades = {
 	"wall_count": 0
 }
 
+# Добавь после других переменных
+var shop_currency: int = 0  # Специальная валюта для магазина
+
+# Купленные предметы
+var purchased_items = {
+	"double_shot": false,
+	"triple_shot": false,
+	"piercing_shot": false,
+	"explosive_shot": false,
+	"sword_upgrade_1": false,
+	"sword_upgrade_2": false,
+	"scroll_fire": false,
+	"scroll_ice": false,
+	"scroll_lightning": false
+}
+
+signal currency_changed(amount)
+signal item_purchased(item_id)
+
+# Добавь функции
+func add_currency(amount: int) -> void:
+	shop_currency += amount
+	currency_changed.emit(shop_currency)
+	emit_stats()
+
+func can_afford(price: int) -> bool:
+	return shop_currency >= price
+
+func purchase_item(item_id: String, price: int) -> bool:
+	if not can_afford(price):
+		return false
+	
+	if purchased_items.has(item_id) and purchased_items[item_id]:
+		return false  # Уже куплено
+	
+	shop_currency -= price
+	purchased_items[item_id] = true
+	currency_changed.emit(shop_currency)
+	item_purchased.emit(item_id)
+	emit_stats()
+	return true
 const SAVE_FILE = "user://savegame.save"
 
 signal stats_updated
