@@ -6,7 +6,6 @@
 [node name="wave + exp UI" type="CanvasLayer" groups=["wave_manager"]]
 
 [node name="UI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -60,16 +59,14 @@ layout_mode = 2
 
 [node name="WaveTimerContainer" type="VBoxContainer" parent="UI"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -21.0
-offset_bottom = 21.0
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.0
+offset_top = 566.0
+offset_right = 43.0
+offset_bottom = 632.5
+grow_horizontal = 2
 
 [node name="TimerLabel" type="Label" parent="UI/WaveTimerContainer"]
 layout_mode = 2
@@ -81,6 +78,7 @@ text = "skip"
 
 [node name="UpgradeMenu" type="Control" parent="UI"]
 process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
