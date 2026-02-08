@@ -6,6 +6,7 @@
 [node name="wave + exp UI" type="CanvasLayer" groups=["wave_manager"]]
 
 [node name="UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
