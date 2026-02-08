@@ -1980,6 +1980,7 @@ shape = SubResource("RectangleShape2D_lct0g")
 metadata/_edit_lock_ = true
 
 [node name="pauseSystem" type="Node" parent="."]
+process_mode = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="pauseSystem"]
 
