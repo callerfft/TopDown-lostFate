@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwov8a1qqnqgi"]
+[gd_scene load_steps=4 format=3 uid="uid://dwov8a1qqnqgi"]
 
 [ext_resource type="Script" uid="uid://d0p2qi7ce5u1u" path="res://map/shop_building.gd" id="1_ata7t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jsm8x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ata7t"]
 
 [node name="shopBuilding" type="StaticBody2D"]
 script = ExtResource("1_ata7t")
@@ -15,6 +17,7 @@ shape = SubResource("CircleShape2D_jsm8x")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ata7t")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
