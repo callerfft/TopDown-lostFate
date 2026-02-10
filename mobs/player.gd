@@ -185,7 +185,7 @@ func activate_shield() -> void:
 	shield_cooldown = shield_cooldown_max
 	
 	# Визуальный эффект щита
-	modulate = Color(0.5, 0.5, 1.0)
+	modulate = Color(0.408, 0.349, 1.0, 1.0)
 	
 	print("🛡️ Shield activated!")
 	
