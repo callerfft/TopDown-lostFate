@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c38j6xl8dfd2s"]
+[gd_scene format=3 uid="uid://c38j6xl8dfd2s"]
 
 [ext_resource type="Script" uid="uid://copn56c7v0wk6" path="res://menus/lobby.gd" id="1_g1gpu"]
 [ext_resource type="Texture2D" uid="uid://dgunj6eqcgvcb" path="res://map/parallax/1.png" id="2_ckc8j"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://u310sjjhf5f2" path="res://map/parallax/3.png" id="4_cyxk6"]
 [ext_resource type="Script" uid="uid://chq1k7pcjbrb1" path="res://menus/audio_control.gd" id="5_s7iwt"]
 [ext_resource type="Script" uid="uid://vadnlhaxoyus" path="res://menus/sound_control.gd" id="6_0joup"]
-[ext_resource type="AudioStream" uid="uid://bw2cww4t8cgwh" path="res://C418 - Moog City 2 (Slowed).mp3" id="6_cyxk6"]
+[ext_resource type="AudioStream" uid="uid://pvs8ntew3ufd" path="res://чего ты хочешь.mp3" id="7_0joup"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5byu"]
 bg_color = Color(0.19793725, 0.19793725, 0.19793719, 1)
@@ -98,51 +98,51 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[node name="lobby" type="Node"]
+[node name="lobby" type="Node" unique_id=1184571773]
 process_mode = 3
 script = ExtResource("1_g1gpu")
 metadata/_edit_horizontal_guides_ = [186.0, 515.0]
 metadata/_edit_vertical_guides_ = [76.0, 518.0]
 
-[node name="paralax" type="CanvasLayer" parent="."]
+[node name="paralax" type="CanvasLayer" parent="." unique_id=374491019]
 
-[node name="Parallax2D2" type="Parallax2D" parent="paralax"]
+[node name="Parallax2D2" type="Parallax2D" parent="paralax" unique_id=259588405]
 repeat_size = Vector2(1150, 0)
 autoscroll = Vector2(2, 0)
 repeat_times = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="paralax/Parallax2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="paralax/Parallax2D2" unique_id=1296114727]
 texture_repeat = 2
 scale = Vector2(1.9972408, 1.9972408)
 texture = ExtResource("2_ckc8j")
 centered = false
 
-[node name="Parallax2D3" type="Parallax2D" parent="paralax"]
+[node name="Parallax2D3" type="Parallax2D" parent="paralax" unique_id=188582688]
 repeat_size = Vector2(1150, 0)
 autoscroll = Vector2(6.74, 0)
 repeat_times = 3
 
-[node name="Sprite2D2" type="Sprite2D" parent="paralax/Parallax2D3"]
+[node name="Sprite2D2" type="Sprite2D" parent="paralax/Parallax2D3" unique_id=621167322]
 texture_repeat = 2
 scale = Vector2(1.9972408, 1.9972408)
 texture = ExtResource("3_s7iwt")
 centered = false
 
-[node name="Parallax2D" type="Parallax2D" parent="paralax"]
+[node name="Parallax2D" type="Parallax2D" parent="paralax" unique_id=947470068]
 scroll_scale = Vector2(7.08, 1)
 repeat_size = Vector2(1150.36, 0)
 autoscroll = Vector2(20.59, 0)
 repeat_times = 3
 
-[node name="Sprite2D3" type="Sprite2D" parent="paralax/Parallax2D"]
+[node name="Sprite2D3" type="Sprite2D" parent="paralax/Parallax2D" unique_id=1169210686]
 texture_repeat = 2
 scale = Vector2(1.9972408, 1.9972408)
 texture = ExtResource("4_cyxk6")
 centered = false
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=269994496]
 
-[node name="lobbyPanel" type="Panel" parent="UI"]
+[node name="lobbyPanel" type="Panel" parent="UI" unique_id=705983166]
 unique_name_in_owner = true
 offset_left = 386.0
 offset_top = 197.0
@@ -151,7 +151,7 @@ offset_bottom = 350.0
 scale = Vector2(1.3704233, 1.3704233)
 theme_override_styles/panel = SubResource("StyleBoxFlat_k5byu")
 
-[node name="option" type="Panel" parent="UI"]
+[node name="option" type="Panel" parent="UI" unique_id=1518891860]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -159,7 +159,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0joup")
 
-[node name="optionPanel" type="Panel" parent="UI/option"]
+[node name="optionPanel" type="Panel" parent="UI/option" unique_id=758544579]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 79.0
@@ -169,7 +169,7 @@ offset_bottom = 423.8015
 scale = Vector2(1.3704233, 1.3704233)
 theme_override_styles/panel = SubResource("StyleBoxFlat_k5byu")
 
-[node name="optionBack" type="Button" parent="UI/option/optionPanel"]
+[node name="optionBack" type="Button" parent="UI/option/optionPanel" unique_id=694063206]
 layout_mode = 0
 offset_left = 682.27094
 offset_top = -129.15717
@@ -181,7 +181,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_s7iwt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cyxk6")
 text = "back"
 
-[node name="optionBox" type="VBoxContainer" parent="UI/option/optionPanel"]
+[node name="optionBox" type="VBoxContainer" parent="UI/option/optionPanel" unique_id=117779106]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -197,7 +197,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="CheckButton" type="CheckButton" parent="UI/option/optionPanel/optionBox"]
+[node name="CheckButton" type="CheckButton" parent="UI/option/optionPanel/optionBox" unique_id=1112066365]
 layout_mode = 2
 button_pressed = true
 text = "music"
@@ -205,7 +205,7 @@ alignment = 1
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="audioControl" type="HSlider" parent="UI/option/optionPanel/optionBox"]
+[node name="audioControl" type="HSlider" parent="UI/option/optionPanel/optionBox" unique_id=943760841]
 layout_mode = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_ckc8j")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_w7xq5")
@@ -215,14 +215,14 @@ max_value = 6.0
 script = ExtResource("5_s7iwt")
 audio = "Master"
 
-[node name="soundControl" type="HSlider" parent="UI/option/optionPanel/optionBox"]
+[node name="soundControl" type="HSlider" parent="UI/option/optionPanel/optionBox" unique_id=854109620]
 layout_mode = 2
 min_value = -60.0
 max_value = 10.0
 value = -20.0
 script = ExtResource("6_0joup")
 
-[node name="Button" type="Button" parent="UI/option/optionPanel"]
+[node name="Button" type="Button" parent="UI/option/optionPanel" unique_id=1542166567]
 layout_mode = 0
 offset_left = -0.7296982
 offset_top = 212.34315
@@ -233,7 +233,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_4ymqo")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gqq2p")
 text = "|                                                                    |"
 
-[node name="Button2" type="Button" parent="UI/option/optionPanel"]
+[node name="Button2" type="Button" parent="UI/option/optionPanel" unique_id=1961139426]
 layout_mode = 0
 offset_left = -0.7297037
 offset_top = 0.7297039
@@ -244,7 +244,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_crjt7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ad0dw")
 text = "|                                                                       |"
 
-[node name="lobbyButtons" type="VBoxContainer" parent="UI"]
+[node name="lobbyButtons" type="VBoxContainer" parent="UI" unique_id=1619710910]
 visible = false
 offset_left = 404.0
 offset_top = 212.99998
@@ -252,32 +252,33 @@ offset_right = 699.0
 offset_bottom = 392.0
 scale = Vector2(1.3704233, 1.3704233)
 
-[node name="buttonIgnore" type="Button" parent="UI/lobbyButtons"]
+[node name="buttonIgnore" type="Button" parent="UI/lobbyButtons" unique_id=688339405]
 layout_mode = 2
 
-[node name="startButton" type="Button" parent="UI/lobbyButtons"]
+[node name="startButton" type="Button" parent="UI/lobbyButtons" unique_id=1793753925]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
 text = "start"
 
-[node name="optionButton" type="Button" parent="UI/lobbyButtons"]
+[node name="optionButton" type="Button" parent="UI/lobbyButtons" unique_id=628172964]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
 text = "option"
 
-[node name="quitButton" type="Button" parent="UI/lobbyButtons"]
+[node name="quitButton" type="Button" parent="UI/lobbyButtons" unique_id=527070793]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
 text = "quit"
 
-[node name="buttonIgnore1" type="Button" parent="UI/lobbyButtons"]
+[node name="buttonIgnore1" type="Button" parent="UI/lobbyButtons" unique_id=774826310]
 layout_mode = 2
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_cyxk6")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=711302599]
+stream = ExtResource("7_0joup")
+volume_db = -13.237
 autoplay = true
 
 [connection signal="pressed" from="UI/option/optionPanel/optionBack" to="." method="_on_button_pressed"]

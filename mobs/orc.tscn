@@ -1,11 +1,15 @@
-[gd_scene load_steps=28 format=3 uid="uid://ybxtopsdvrbd"]
+[gd_scene format=3 uid="uid://ybxtopsdvrbd"]
 
 [ext_resource type="Texture2D" uid="uid://ctu1ft50h501c" path="res://mobs/Orc.png" id="1_1c74i"]
 [ext_resource type="Script" uid="uid://dpdjbbyqw5ry7" path="res://mobs/orc.gd" id="1_q5rie"]
-[ext_resource type="PackedScene" uid="uid://38dyvpqnp08u" path="res://blood_scene.tscn" id="2_347kl"]
-[ext_resource type="PackedScene" uid="uid://nedp2i43t8il" path="res://coin.tscn" id="2_qed8s"]
 [ext_resource type="AudioStream" uid="uid://bdvxoa42gg8om" path="res://Skeleton_attack_тАУ_Bo_#3-1766768181651.mp3" id="3_85irk"]
-[ext_resource type="Texture2D" uid="uid://dx4ykaxact3wa" path="res://map/light.png" id="6_17h1c"]
+[ext_resource type="Texture2D" uid="uid://dxwfcp2dixuoe" path="res://2d_lights_.webp" id="4_qed8s"]
+
+[sub_resource type="Resource" id="Resource_347kl"]
+metadata/__load_path__ = "res://blood_scene.tscn"
+
+[sub_resource type="Resource" id="Resource_17h1c"]
+metadata/__load_path__ = "res://coin.tscn"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5rie"]
 radius = 6.0
@@ -157,12 +161,12 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_85irk"]
 
-[node name="orc" type="CharacterBody2D" groups=["enemy"]]
+[node name="orc" type="CharacterBody2D" unique_id=1991152188 groups=["enemy"]]
 script = ExtResource("1_q5rie")
-blood_effect_scene = ExtResource("2_347kl")
-coin_scene = ExtResource("2_qed8s")
+blood_effect_scene = SubResource("Resource_347kl")
+coin_scene = SubResource("Resource_17h1c")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=634161085]
 visible = false
 offset_left = -389.0
 offset_top = -357.0
@@ -170,30 +174,30 @@ offset_right = -200.36
 offset_bottom = -185.92
 scale = Vector2(4.13, 4.13)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1600799941]
 light_mask = 3
 shape = SubResource("CapsuleShape2D_q5rie")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1645327760]
 sprite_frames = SubResource("SpriteFrames_k0rl5")
 animation = &"run"
 autoplay = "default"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=141249058]
 collision_layer = 4
 collision_mask = 10
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=419720884]
 shape = SubResource("CircleShape2D_85irk")
 
-[node name="orcSound" type="AudioStreamPlayer" parent="."]
+[node name="orcSound" type="AudioStreamPlayer" parent="." unique_id=1606809377]
 stream = ExtResource("3_85irk")
 volume_db = -13.33
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=732430374]
 color = Color(1, 0, 0, 1)
 energy = 0.72
-texture = ExtResource("6_17h1c")
+texture = ExtResource("4_qed8s")
 texture_scale = 0.44
 height = 471.0
 
