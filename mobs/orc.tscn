@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ctu1ft50h501c" path="res://mobs/Orc.png" id="1_1c74i"]
 [ext_resource type="Script" uid="uid://dpdjbbyqw5ry7" path="res://mobs/orc.gd" id="1_q5rie"]
 [ext_resource type="AudioStream" uid="uid://bdvxoa42gg8om" path="res://Skeleton_attack_тАУ_Bo_#3-1766768181651.mp3" id="3_85irk"]
-[ext_resource type="Texture2D" uid="uid://dxwfcp2dixuoe" path="res://2d_lights_.webp" id="4_qed8s"]
+[ext_resource type="Texture2D" uid="uid://cci0lah1g0eod" path="res://light.png" id="4_qed8s"]
 
 [sub_resource type="Resource" id="Resource_347kl"]
 metadata/__load_path__ = "res://blood_scene.tscn"

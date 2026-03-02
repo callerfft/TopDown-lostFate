@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bwd4w87xmj16h"]
 
-[ext_resource type="Texture2D" uid="uid://dxwfcp2dixuoe" path="res://2d_lights_.webp" id="1_bhc64"]
+[ext_resource type="Texture2D" uid="uid://cci0lah1g0eod" path="res://light.png" id="1_bhc64"]
 [ext_resource type="Texture2D" uid="uid://jxxd7m2sxmc0" path="res://map/mapLayer/TX Tileset Grass.png" id="1_yx4x3"]
 [ext_resource type="Texture2D" uid="uid://bchfti3x0lmm6" path="res://map/mapLayer/TX Struct.png" id="2_x0n1c"]
 [ext_resource type="Texture2D" uid="uid://cckfcxn0v385i" path="res://map/mapLayer/TX Tileset Wall.png" id="3_e2bhf"]
