@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://pvs8ntew3ufd"
+path="res://.godot/imported/чего ты хочешь.mp3-796d364f010ccf87ee2235313645028c.mp3str"
+
+[deps]
+
+source_file="res://filt/чего ты хочешь.mp3"
+dest_files=["res://.godot/imported/чего ты хочешь.mp3-796d364f010ccf87ee2235313645028c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

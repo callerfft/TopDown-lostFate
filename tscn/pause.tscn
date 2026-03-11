@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw6csot1axsuv"]
+[gd_scene format=3 uid="uid://bw6csot1axsuv"]
 
 [ext_resource type="Script" uid="uid://c8plhge3n8l0o" path="res://filt/pause.gd" id="1_ebs2q"]
 [ext_resource type="Shader" uid="uid://7t6008p7bknl" path="res://filt/www.gdshader" id="2_syfd3"]
@@ -15,14 +15,15 @@ border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.13682574, 0.13682574, 0.13682568, 1)
+border_color = Color(0.13725491, 0.13725491, 0.13725491, 0.5764706)
 border_blend = true
 corner_radius_top_left = 21
 corner_radius_top_right = 21
 corner_radius_bottom_right = 21
 corner_radius_bottom_left = 21
-shadow_color = Color(0.01, 0.01, 0.01, 0.83137256)
-shadow_size = 23
+shadow_color = Color(0.0003729241, 0.0003729241, 0.0003729241, 0.5137255)
+shadow_size = 20
+anti_aliasing = false
 anti_aliasing_size = 7.66
 
 [sub_resource type="Animation" id="Animation_qmwnm"]
@@ -172,7 +173,7 @@ _data = {
 &"blur": SubResource("Animation_27dnq")
 }
 
-[node name="pause" type="Control"]
+[node name="pause" type="Control" unique_id=488315833]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -182,7 +183,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ebs2q")
 
-[node name="darker" type="ColorRect" parent="."]
+[node name="darker" type="ColorRect" parent="." unique_id=628810797]
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -193,7 +194,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="blur" type="ColorRect" parent="."]
+[node name="blur" type="ColorRect" parent="." unique_id=402831585]
 material = SubResource("ShaderMaterial_is4yc")
 layout_mode = 1
 anchors_preset = 15
@@ -202,7 +203,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1910189652]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -217,32 +218,30 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ebs2q")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=723279051]
 layout_mode = 2
 alignment = 1
 
-[node name="continueGameUI" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="continueGameUI" type="Button" parent="PanelContainer/VBoxContainer" unique_id=51354930]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("3_is4yc")
 theme_override_styles/hover = ExtResource("4_27dnq")
 text = "continue"
 
-[node name="restartGameUI" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="restartGameUI" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1940568707]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("3_is4yc")
 theme_override_styles/hover = ExtResource("4_27dnq")
 text = "restart"
 
-[node name="lobbyGameUI" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="lobbyGameUI" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1908253129]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("3_is4yc")
 theme_override_styles/hover = ExtResource("4_27dnq")
 text = "lobby"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_12sf1")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1094843797]
+libraries/ = SubResource("AnimationLibrary_12sf1")
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/continueGameUI" to="." method="_on_continue_game_ui_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/restartGameUI" to="." method="_on_restart_game_ui_pressed"]

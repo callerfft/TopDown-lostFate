@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://ctu1ft50h501c" path="res://mobs/Orc.png" id="1_1c74i"]
 [ext_resource type="Script" uid="uid://dpdjbbyqw5ry7" path="res://mobs/orc.gd" id="1_q5rie"]
-[ext_resource type="AudioStream" uid="uid://bdvxoa42gg8om" path="res://Skeleton_attack_тАУ_Bo_#3-1766768181651.mp3" id="3_85irk"]
-[ext_resource type="Texture2D" uid="uid://cci0lah1g0eod" path="res://light.png" id="4_qed8s"]
+[ext_resource type="AudioStream" uid="uid://3l4nm6emnwfm" path="res://audio/sound/stepir44-hurt-sound-435314.mp3" id="3_qed8s"]
+[ext_resource type="Texture2D" uid="uid://cci0lah1g0eod" path="res://filt/light.png" id="4_qed8s"]
 
 [sub_resource type="Resource" id="Resource_347kl"]
 metadata/__load_path__ = "res://blood_scene.tscn"
@@ -191,14 +191,22 @@ collision_mask = 10
 shape = SubResource("CircleShape2D_85irk")
 
 [node name="orcSound" type="AudioStreamPlayer" parent="." unique_id=1606809377]
-stream = ExtResource("3_85irk")
+stream = ExtResource("3_qed8s")
 volume_db = -13.33
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=732430374]
-color = Color(1, 0, 0, 1)
-energy = 0.72
+[node name="PointLight2D" type="Sprite2D" parent="." unique_id=1272759000]
+visible = false
+modulate = Color(1, 1, 1, 0.12941177)
+self_modulate = Color(1, 0.04000002, 0.055999756, 1)
+scale = Vector2(0.315, 0.315)
 texture = ExtResource("4_qed8s")
-texture_scale = 0.44
-height = 471.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=2086174703]
+visible = false
+position = Vector2(-1.0000153, -0.99998474)
+scale = Vector2(0.46875, 0.49804688)
+color = Color(1, 0, 0, 1)
+energy = 0.98
+texture = ExtResource("4_qed8s")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

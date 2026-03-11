@@ -2,7 +2,7 @@ extends Node
 
 # Статистика игрока
 var player_level: int = 1
-var current_exp: int = 0
+var current_exp: int = 90
 var exp_to_next_level: int = 100
 var total_kills: int = 0
 
@@ -90,7 +90,7 @@ func increase_level() -> void:
 func add_kill() -> void:
 	total_kills += 1
 	kills_this_wave += 1
-	add_exp(2)
+	add_exp(10)
 
 # === СИСТЕМА ВОЛН ===
 

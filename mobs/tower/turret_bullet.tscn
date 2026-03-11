@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://qlhxx547hsmv"]
 
-[ext_resource type="Texture2D" uid="uid://cci0lah1g0eod" path="res://light.png" id="2_po7df"]
+[ext_resource type="Script" uid="uid://lw73q6y8anrn" path="res://mobs/tower/turret_bullet.gd" id="1_po7df"]
+[ext_resource type="Texture2D" uid="uid://cci0lah1g0eod" path="res://filt/light.png" id="2_po7df"]
 [ext_resource type="Texture2D" uid="uid://dc1qfekurwwxp" path="res://mobs/tower/All_Fire_Bullet_Pixel_16x16_05.png" id="2_yca3s"]
-[ext_resource type="Script" uid="uid://cq3w4gimmkmex" path="res://mobs/tower/area_2d.gd" id="3_po7df"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yca3s"]
 
@@ -10,6 +10,7 @@
 size = Vector2(8, 4)
 
 [node name="turret_bullet" type="Area2D" unique_id=660482092]
+script = ExtResource("1_po7df")
 
 [node name="Panel" type="Panel" parent="." unique_id=1935977406]
 visible = false
@@ -33,11 +34,10 @@ autostart = true
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=216041285]
 scale = Vector2(0.1553955, 0.08203124)
-energy = 0.45
+energy = 0.14
 texture = ExtResource("2_po7df")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1514133214]
-script = ExtResource("3_po7df")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=965821688]
 shape = SubResource("RectangleShape2D_8xi7r")

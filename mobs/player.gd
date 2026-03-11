@@ -87,7 +87,7 @@ func _ready():
 	death_screen.visible = false
 	pause_button.visible = true
 	timer.start()
-	GameManager.upgrades.turret_count = 99
+	GameManager.upgrades.turret_count = 1
 	GameManager.emit_stats()
 	print("turrets for testing")
 	 
@@ -103,6 +103,7 @@ func _input(event: InputEvent) -> void:
 		print("HP: ", hp)
 	if event.is_action_pressed("damage"):
 		hp -= 1
+		
 		print("HP: ", hp)
 
 func _process(delta: float) -> void:

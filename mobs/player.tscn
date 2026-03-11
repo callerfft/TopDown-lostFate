@@ -5,10 +5,12 @@
 [ext_resource type="Shader" uid="uid://cxw0yxi1vhvad" path="res://mobs/player.gdshader" id="2_5byi2"]
 [ext_resource type="PackedScene" uid="uid://co8veua5w3wd4" path="res://mobs/tower/turret.tscn" id="2_g2xol"]
 [ext_resource type="Script" uid="uid://bbkocr601f31p" path="res://mobs/camera_2d.gd" id="2_p48md"]
-[ext_resource type="Texture2D" uid="uid://cci0lah1g0eod" path="res://light.png" id="3_6tt77"]
+[ext_resource type="Texture2D" uid="uid://cci0lah1g0eod" path="res://filt/light.png" id="3_6tt77"]
 [ext_resource type="PackedScene" uid="uid://cun1chgupktyd" path="res://mobs/guns/sword.tscn" id="3_cmhbq"]
 [ext_resource type="PackedScene" uid="uid://cgfahnqrpl3p3" path="res://menus/death_screen.tscn" id="5_w53sm"]
 [ext_resource type="PackedScene" uid="uid://dy0sut8bqxvpu" path="res://tscn/healthBar.tscn" id="7_moir4"]
+[ext_resource type="AudioStream" uid="uid://hkc8fpered7m" path="res://audio/sound/homemade_sfx-slap-hurt-pain-sound-effect-262618.mp3" id="10_egokn"]
+[ext_resource type="AudioStream" uid="uid://c85tx3hdp1tda" path="res://audio/sound/chakong-laser-gun-shot-sound-future-sci-fi-lazer-wobble-chakongaudio-174883.mp3" id="11_lrshf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f4wug"]
 radius = 6.0827627
@@ -293,13 +295,17 @@ offset_bottom = 16.0
 [node name="sounds" type="Node" parent="." unique_id=867012583]
 
 [node name="playerHurt" type="AudioStreamPlayer" parent="sounds" unique_id=158371864]
+stream = ExtResource("10_egokn")
 volume_db = -12.29
 
 [node name="regenSound" type="AudioStreamPlayer" parent="sounds" unique_id=620834209]
 bus = &"sound"
 
 [node name="shoot" type="AudioStreamPlayer" parent="sounds" unique_id=192865150]
-volume_db = -21.763
+stream = ExtResource("11_lrshf")
+volume_db = -10.646
+pitch_scale = 1.36
+autoplay = true
 
 [connection signal="area_entered" from="regen" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]

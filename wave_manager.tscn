@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://dge6a5nq7302k"]
-
-[ext_resource type="Script" uid="uid://c3l33a51cjho3" path="res://wave_manager.gd" id="1_050wf"]
-[ext_resource type="PackedScene" uid="uid://ybxtopsdvrbd" path="res://mobs/orc.tscn" id="2_244l3"]
-
-[node name="WaveManager" type="Node"]
-script = ExtResource("1_050wf")
-orc_scene = ExtResource("2_244l3")

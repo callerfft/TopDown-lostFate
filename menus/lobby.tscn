@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://u310sjjhf5f2" path="res://map/parallax/3.png" id="4_cyxk6"]
 [ext_resource type="Script" uid="uid://chq1k7pcjbrb1" path="res://menus/audio_control.gd" id="5_s7iwt"]
 [ext_resource type="Script" uid="uid://vadnlhaxoyus" path="res://menus/sound_control.gd" id="6_0joup"]
-[ext_resource type="AudioStream" uid="uid://pvs8ntew3ufd" path="res://чего ты хочешь.mp3" id="7_0joup"]
+[ext_resource type="PackedScene" uid="uid://djfwwqkq3p8iq" path="res://filt/sound.tscn" id="7_0joup"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5byu"]
-bg_color = Color(0.19793725, 0.19793725, 0.19793719, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gx30q"]
+bg_color = Color(0.13755062, 0.13755065, 0.13755056, 1)
 corner_radius_top_left = 23
 corner_radius_top_right = 23
 corner_radius_bottom_right = 23
@@ -17,6 +17,13 @@ corner_radius_bottom_left = 23
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0joup"]
 bg_color = Color(0.23031494, 0.23031494, 0.23031497, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5byu"]
+bg_color = Color(0.19793725, 0.19793725, 0.19793719, 1)
+corner_radius_top_left = 23
+corner_radius_top_right = 23
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7iwt"]
 bg_color = Color(0.11858138, 0.11858139, 0.11858136, 1)
@@ -149,9 +156,10 @@ offset_top = 197.0
 offset_right = 706.0
 offset_bottom = 350.0
 scale = Vector2(1.3704233, 1.3704233)
-theme_override_styles/panel = SubResource("StyleBoxFlat_k5byu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gx30q")
 
 [node name="option" type="Panel" parent="UI" unique_id=1518891860]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -245,7 +253,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ad0dw")
 text = "|                                                                       |"
 
 [node name="lobbyButtons" type="VBoxContainer" parent="UI" unique_id=1619710910]
-visible = false
 offset_left = 404.0
 offset_top = 212.99998
 offset_right = 699.0
@@ -276,10 +283,7 @@ text = "quit"
 [node name="buttonIgnore1" type="Button" parent="UI/lobbyButtons" unique_id=774826310]
 layout_mode = 2
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=711302599]
-stream = ExtResource("7_0joup")
-volume_db = -13.237
-autoplay = true
+[node name="Node" parent="." unique_id=2027157155 instance=ExtResource("7_0joup")]
 
 [connection signal="pressed" from="UI/option/optionPanel/optionBack" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="UI/option/optionPanel/optionBox/CheckButton" to="." method="_on_check_button_toggled"]
