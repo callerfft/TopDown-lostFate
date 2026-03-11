@@ -219,7 +219,7 @@ func update_notification() -> void:
 		return
 	
 	if pending_upgrades.size() > 0:
-		notification_button.text = "⬆️ Upgrades (%d)" % pending_upgrades.size()
+		notification_button.text = "Upg:(%d)" % pending_upgrades.size()
 		notification_button.visible = true
 	else:
 		notification_button.visible = false
