@@ -1,7 +1,7 @@
 extends StaticBody2D
 
-@onready var interaction_area: Area2D = $InteractionArea
-@onready var interaction_prompt: Label = $InteractionPrompt
+@onready var interaction_area: Area2D = $Area2D
+@onready var interaction_prompt: Label = $Label
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 var player_nearby: bool = false

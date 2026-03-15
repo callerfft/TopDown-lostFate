@@ -13,24 +13,62 @@ var has_notified_wave_manager = false
 var drop_chance: float = 0.3
 
 func _ready() -> void:
+	
 	pass
+
+func _physics_process(delta):
+	if is_dead:
+		return
+
+	if Input.is_action_just_pressed("kill all"):
+		kill_all()
+
+	var direction = get_direction_to_player()
+	velocity = speed * direction
+	move_and_slide()
+
+	if velocity.length() > 0:
+		animated_sprite_2d.play("run")
+	else:
+		animated_sprite_2d.play("default")
+
+	var face_sign = sign(direction.x)
+	if face_sign != 0:
+		animated_sprite_2d.scale.x = face_sign
 
 func _process(_delta: float) -> void:
 	if is_dead:
 		return
-		
-	var direction = get_direction_to_player()
-	velocity = speed * direction
-	move_and_slide()
+	if Input.is_action_just_pressed("kill all"):
+		kill_all()
 	
-	if direction.x != 0 || direction.y != 0:
-		animated_sprite_2d.play("run")
-	else:
-		animated_sprite_2d.play("default")
+
+func kill_all():
+	is_dead = true
+	speed = 0
+	print("kill all pressed")
 	
-	var face_sign = sign(direction.x)
-	if face_sign != 0:
-		animated_sprite_2d.scale.x = face_sign
+	#animated_sprite_2d.stop()
+	# отключение всех коллизии
+	for child in get_children():
+		if child is CollisionShape2D:
+			child.set_deferred("disabled", true)
+	
+	if has_node("Area2D"):
+		$Area2D.set_deferred("monitoring", false)
+		$Area2D.set_deferred("monitorable", false)
+	
+	if has_node("orcSound"):
+		$orcSound.play()
+	
+	animated_sprite_2d.play("hurt")
+	
+	call_deferred("spawn_effects")
+	call_deferred("notify_wave_manager")
+	
+	await animated_sprite_2d.animation_finished
+	
+	queue_free()
 
 func get_direction_to_player():
 	var player = get_tree().get_first_node_in_group("player") as Node2D
@@ -41,7 +79,8 @@ func get_direction_to_player():
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	if is_dead:
 		return
-	
+	#if Input.is_action_just_pressed("kill all"):
+		#is_dead = true
 	is_dead = true
 	speed = 0
 	
@@ -68,14 +107,14 @@ func _on_area_2d_area_entered(_area: Area2D) -> void:
 
 func notify_wave_manager() -> void: 
 	if has_notified_wave_manager:
-		print("⚠️ Already notified, skipping")
+		print("Already notified, skipping")
 		return
 	
 	has_notified_wave_manager = true
 	
 	var wave_mgr = get_tree().get_first_node_in_group("wave_manager")
 	if wave_mgr and wave_mgr.has_method("on_enemy_killed"):
-		print("✅ Notifying wave manager (ONCE)")
+		print("Notifying wave manager (ONCE)")
 		wave_mgr.on_enemy_killed()
 
 func spawn_effects() -> void:
