@@ -16,7 +16,7 @@ signal all_enemies_killed()
 
 func _ready() -> void:
 	spawn_timer = Timer.new()
-	spawn_timer.wait_time = 0.1 
+	spawn_timer.wait_time = 0.01 
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	add_child(spawn_timer)
 	
@@ -58,7 +58,7 @@ func _on_spawn_timer_timeout() -> void:
 	else:
 		# Все враги заспавнены - ост  таймер
 		spawn_timer.stop()
-		print("✅ All enemies spawned! Waiting for player to kill them all...")
+		print("success spawns--")
 
 func spawn_enemy() -> void:
 	if not orc_scene:
@@ -81,7 +81,7 @@ func spawn_enemy() -> void:
 
 func on_enemy_killed() -> void:
 	if enemies_alive <= 0:
-		print("⚠️ Warning: on_enemy_killed called but no enemies alive!")
+		print("killed called but no enemies alive!")
 		return
 	
 	enemies_alive -= 1

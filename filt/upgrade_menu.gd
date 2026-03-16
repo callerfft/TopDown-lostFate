@@ -144,8 +144,8 @@ func show_panel() -> void:
 	var tween = create_tween()
 	tween.tween_property(side_panel, "position:x", target_x, 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	
-	print("Screen width: ", screen_width)
-	print("Panel target X: ", target_x)
+	#print("Screen width: ", screen_width)
+	#print("Panel target X: ", target_x)
 func hide_panel() -> void:
 	is_panel_open = false
 	
@@ -200,7 +200,7 @@ func select_upgrade(index: int) -> void:
 		return
 	
 	var upgrade_id = current_options[index]
-	print("✅ Selected: ", upgrade_id)
+	print("Selected: ", upgrade_id)
 	
 	GameManager.apply_upgrade(upgrade_id)
 	

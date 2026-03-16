@@ -18,7 +18,7 @@ func _ready() -> void:
 	shop_menu = get_tree().get_first_node_in_group("shop_menu")
 	
 	if not shop_menu:
-		print("❌ ShopMenu not found! Add it to 'shop_menu' group")
+		print("ShopMenu not found! Add it to 'shop_menu' group")
 	
 	# Подключаемся к волнам
 	var wave_manager = get_tree().get_first_node_in_group("wave_manager")
