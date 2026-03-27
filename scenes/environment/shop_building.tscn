@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dwov8a1qqnqgi"]
 
 [ext_resource type="Script" uid="uid://d0p2qi7ce5u1u" path="res://scripts/buildings/shop_building.gd" id="1_ata7t"]
-[ext_resource type="Texture2D" uid="uid://bgt8x33os8mmv" path="res://assets/sprites/ui/Снимок экрана 2026-03-15 183822.png" id="2_ute00"]
+[ext_resource type="Texture2D" uid="uid://dpbmgesunynsy" path="res://assets/sprites/ui/Снимок экрана 2026-03-15 183822.png" id="2_ute00"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ute00"]
 
