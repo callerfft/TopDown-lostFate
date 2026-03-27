@@ -1,0 +1,294 @@
+[gd_scene format=3 uid="uid://c38j6xl8dfd2s"]
+
+[ext_resource type="Script" uid="uid://copn56c7v0wk6" path="res://scripts/ui/lobby.gd" id="1_g1gpu"]
+[ext_resource type="Texture2D" uid="uid://dgunj6eqcgvcb" path="res://assets/sprites/environment/1.png" id="2_ckc8j"]
+[ext_resource type="Texture2D" uid="uid://cnwuid7dlytte" path="res://assets/sprites/environment/2.png" id="3_s7iwt"]
+[ext_resource type="Texture2D" uid="uid://u310sjjhf5f2" path="res://assets/sprites/environment/3.png" id="4_cyxk6"]
+[ext_resource type="Script" uid="uid://chq1k7pcjbrb1" path="res://scripts/ui/audio_control.gd" id="5_s7iwt"]
+[ext_resource type="Script" uid="uid://vadnlhaxoyus" path="res://scripts/ui/sound_control.gd" id="6_0joup"]
+[ext_resource type="PackedScene" uid="uid://djfwwqkq3p8iq" path="res://scenes/sound.tscn" id="7_0joup"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gx30q"]
+bg_color = Color(0.13755062, 0.13755065, 0.13755056, 1)
+corner_radius_top_left = 23
+corner_radius_top_right = 23
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0joup"]
+bg_color = Color(0.23031494, 0.23031494, 0.23031497, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5byu"]
+bg_color = Color(0.19793725, 0.19793725, 0.19793719, 1)
+corner_radius_top_left = 23
+corner_radius_top_right = 23
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7iwt"]
+bg_color = Color(0.11858138, 0.11858139, 0.11858136, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyxk6"]
+bg_color = Color(0.2159017, 0.21590173, 0.21590167, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ckc8j"]
+color = Color(1, 1, 1, 1)
+grow_begin = -16.0
+thickness = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7xq5"]
+bg_color = Color(0.44685698, 0, 0.055223525, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4341u"]
+bg_color = Color(0.41413826, 0.0018657404, 0.6849594, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36axj"]
+bg_color = Color(0.15487596, 0.154876, 0.15487587, 1)
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ymqo"]
+bg_color = Color(0.15487596, 0.154876, 0.15487587, 1)
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqq2p"]
+bg_color = Color(0.2159017, 0.21590173, 0.21590167, 1)
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crjt7"]
+bg_color = Color(0.15487608, 0.15487596, 0.154876, 1)
+corner_radius_top_left = 23
+corner_radius_top_right = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad0dw"]
+bg_color = Color(0.18717611, 0.18717614, 0.18717608, 1)
+corner_radius_top_left = 23
+corner_radius_top_right = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdsfw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckc8j"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 3
+border_color = Color(0.62967473, 0.62967485, 0.62967443, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="lobby" type="Node" unique_id=1184571773]
+process_mode = 3
+script = ExtResource("1_g1gpu")
+metadata/_edit_horizontal_guides_ = [186.0, 515.0]
+metadata/_edit_vertical_guides_ = [76.0, 518.0]
+
+[node name="paralax" type="CanvasLayer" parent="." unique_id=374491019]
+
+[node name="Parallax2D2" type="Parallax2D" parent="paralax" unique_id=259588405]
+repeat_size = Vector2(1150, 0)
+autoscroll = Vector2(2, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="paralax/Parallax2D2" unique_id=1296114727]
+texture_repeat = 2
+scale = Vector2(1.9972408, 1.9972408)
+texture = ExtResource("2_ckc8j")
+centered = false
+
+[node name="Parallax2D3" type="Parallax2D" parent="paralax" unique_id=188582688]
+repeat_size = Vector2(1150, 0)
+autoscroll = Vector2(6.74, 0)
+repeat_times = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="paralax/Parallax2D3" unique_id=621167322]
+texture_repeat = 2
+scale = Vector2(1.9972408, 1.9972408)
+texture = ExtResource("3_s7iwt")
+centered = false
+
+[node name="Parallax2D" type="Parallax2D" parent="paralax" unique_id=947470068]
+scroll_scale = Vector2(7.08, 1)
+repeat_size = Vector2(1150.36, 0)
+autoscroll = Vector2(20.59, 0)
+repeat_times = 3
+
+[node name="Sprite2D3" type="Sprite2D" parent="paralax/Parallax2D" unique_id=1169210686]
+texture_repeat = 2
+scale = Vector2(1.9972408, 1.9972408)
+texture = ExtResource("4_cyxk6")
+centered = false
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=269994496]
+
+[node name="lobbyPanel" type="Panel" parent="UI" unique_id=705983166]
+unique_name_in_owner = true
+offset_left = 386.0
+offset_top = 197.0
+offset_right = 706.0
+offset_bottom = 350.0
+scale = Vector2(1.3704233, 1.3704233)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gx30q")
+
+[node name="option" type="Panel" parent="UI" unique_id=1518891860]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0joup")
+
+[node name="optionPanel" type="Panel" parent="UI/option" unique_id=758544579]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 79.0
+offset_top = 183.0
+offset_right = 399.0
+offset_bottom = 423.8015
+scale = Vector2(1.3704233, 1.3704233)
+theme_override_styles/panel = SubResource("StyleBoxFlat_k5byu")
+
+[node name="optionBack" type="Button" parent="UI/option/optionPanel" unique_id=694063206]
+layout_mode = 0
+offset_left = 682.27094
+offset_top = -129.15717
+offset_right = 757.4302
+offset_bottom = -98.157166
+theme_override_colors/font_outline_color = Color(0.17283267, 0.17283267, 0.17283261, 1)
+theme_override_constants/outline_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_s7iwt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cyxk6")
+text = "back"
+
+[node name="optionBox" type="VBoxContainer" parent="UI/option/optionPanel" unique_id=117779106]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.65059
+offset_top = -110.91463
+offset_right = 88.82822
+offset_bottom = 120.40074
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="UI/option/optionPanel/optionBox" unique_id=1112066365]
+layout_mode = 2
+button_pressed = true
+text = "music"
+alignment = 1
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="audioControl" type="HSlider" parent="UI/option/optionPanel/optionBox" unique_id=943760841]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_ckc8j")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_w7xq5")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_4341u")
+min_value = -40.0
+max_value = 6.0
+script = ExtResource("5_s7iwt")
+audio = "Master"
+
+[node name="soundControl" type="HSlider" parent="UI/option/optionPanel/optionBox" unique_id=854109620]
+layout_mode = 2
+min_value = -60.0
+max_value = 10.0
+value = -20.0
+script = ExtResource("6_0joup")
+
+[node name="Button" type="Button" parent="UI/option/optionPanel" unique_id=1542166567]
+layout_mode = 0
+offset_left = -0.7296982
+offset_top = 212.34315
+offset_right = 318.87955
+offset_bottom = 243.34315
+theme_override_styles/normal = SubResource("StyleBoxFlat_36axj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ymqo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gqq2p")
+text = "|                                                                    |"
+
+[node name="Button2" type="Button" parent="UI/option/optionPanel" unique_id=1961139426]
+layout_mode = 0
+offset_left = -0.7297037
+offset_top = 0.7297039
+offset_right = 320.2703
+offset_bottom = 31.729706
+theme_override_styles/normal = SubResource("StyleBoxFlat_crjt7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_crjt7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ad0dw")
+text = "|                                                                       |"
+
+[node name="lobbyButtons" type="VBoxContainer" parent="UI" unique_id=1619710910]
+offset_left = 404.0
+offset_top = 212.99998
+offset_right = 699.0
+offset_bottom = 392.0
+scale = Vector2(1.3704233, 1.3704233)
+
+[node name="buttonIgnore" type="Button" parent="UI/lobbyButtons" unique_id=688339405]
+layout_mode = 2
+
+[node name="startButton" type="Button" parent="UI/lobbyButtons" unique_id=1793753925]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
+text = "start"
+
+[node name="optionButton" type="Button" parent="UI/lobbyButtons" unique_id=628172964]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
+text = "option"
+
+[node name="quitButton" type="Button" parent="UI/lobbyButtons" unique_id=527070793]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wdsfw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ckc8j")
+text = "quit"
+
+[node name="buttonIgnore1" type="Button" parent="UI/lobbyButtons" unique_id=774826310]
+layout_mode = 2
+
+[node name="Node" parent="." unique_id=2027157155 instance=ExtResource("7_0joup")]
+
+[connection signal="pressed" from="UI/option/optionPanel/optionBack" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="UI/option/optionPanel/optionBox/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="value_changed" from="UI/option/optionPanel/optionBox/audioControl" to="UI/option/optionPanel/optionBox/audioControl" method="_on_value_changed"]
+[connection signal="value_changed" from="UI/option/optionPanel/optionBox/soundControl" to="UI/option/optionPanel/optionBox/soundControl" method="_on_value_changed"]
+[connection signal="pressed" from="UI/lobbyButtons/startButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="UI/lobbyButtons/optionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="UI/lobbyButtons/quitButton" to="." method="_on_quit_button_pressed"]

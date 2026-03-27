@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://qlhxx547hsmv"]
+
+[ext_resource type="Script" uid="uid://lw73q6y8anrn" path="res://scripts/buildings/turret_bullet.gd" id="1_po7df"]
+[ext_resource type="Texture2D" uid="uid://cci0lah1g0eod" path="res://assets/sprites/ui/light.png" id="2_po7df"]
+[ext_resource type="Texture2D" uid="uid://dc1qfekurwwxp" path="res://assets/sprites/weapons/All_Fire_Bullet_Pixel_16x16_05.png" id="2_yca3s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yca3s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xi7r"]
+size = Vector2(8, 4)
+
+[node name="turret_bullet" type="Area2D" unique_id=660482092]
+script = ExtResource("1_po7df")
+
+[node name="Panel" type="Panel" parent="." unique_id=1935977406]
+visible = false
+offset_left = -389.0
+offset_top = -357.0
+offset_right = -200.36
+offset_bottom = -185.92
+scale = Vector2(4.13, 4.13)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=334753168]
+position = Vector2(0, 2.3841858e-07)
+scale = Vector2(0.38888893, 0.47368422)
+texture = ExtResource("2_yca3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1984773074]
+shape = SubResource("RectangleShape2D_yca3s")
+
+[node name="Timer" type="Timer" parent="." unique_id=1128995273]
+wait_time = 5.96
+autostart = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=216041285]
+scale = Vector2(0.1553955, 0.08203124)
+energy = 0.14
+texture = ExtResource("2_po7df")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1514133214]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=965821688]
+shape = SubResource("RectangleShape2D_8xi7r")

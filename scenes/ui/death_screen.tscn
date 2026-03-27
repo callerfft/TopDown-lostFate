@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://cgfahnqrpl3p3"]
+
+[ext_resource type="Script" uid="uid://dy5r21ius4gyb" path="res://scripts/ui/death_screen.gd" id="1_qnkr8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnkr8"]
+bg_color = Color(0.11415806, 0.11415812, 0.11415801, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.18072194, 0.18072197, 0.18072197, 1)
+border_blend = true
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="Theme" id="Theme_0v08c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0v08c"]
+bg_color = Color(0.08701607, 0.08701608, 0.08701601, 1)
+corner_radius_top_left = 23
+corner_radius_top_right = 23
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7khx"]
+bg_color = Color(0.08701607, 0.08701608, 0.08701601, 1)
+corner_radius_top_left = 23
+corner_radius_top_right = 23
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibrf6"]
+bg_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3681019, 0.368102, 0.36810175, 1)
+border_blend = true
+corner_radius_top_left = 23
+corner_radius_top_right = 23
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ayam"]
+bg_color = Color(0.08701607, 0.08701608, 0.08701601, 1)
+corner_radius_top_left = 23
+corner_radius_top_right = 23
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsbit"]
+bg_color = Color(0.08701607, 0.08701608, 0.08701601, 1)
+corner_radius_top_left = 23
+corner_radius_top_right = 23
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lsmg"]
+bg_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3681019, 0.368102, 0.36810175, 1)
+border_blend = true
+corner_radius_top_left = 23
+corner_radius_top_right = 23
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[node name="deathScreen" type="Control" unique_id=72556821]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qnkr8")
+
+[node name="Panel" type="Panel" parent="." unique_id=1229738651]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.5
+offset_top = -179.5
+offset_right = 229.5
+offset_bottom = 179.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qnkr8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1266093092]
+custom_minimum_size = Vector2(5.525, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05610022
+anchor_top = 0.13231198
+anchor_right = 0.9438998
+anchor_bottom = 0.9373259
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0v08c")
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="restartButton" type="Button" parent="Panel/VBoxContainer" unique_id=1218607652]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0v08c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h7khx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ibrf6")
+text = "restart"
+
+[node name="mainMenuButton" type="Button" parent="Panel/VBoxContainer" unique_id=875209687]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ayam")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rsbit")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1lsmg")
+text = "main menu"
+
+[node name="death" type="Label" parent="Panel" unique_id=1503887127]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 18.5
+offset_right = 21.0
+offset_bottom = 41.5
+grow_horizontal = 2
+text = "Death"
+
+[connection signal="pressed" from="Panel/VBoxContainer/restartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/mainMenuButton" to="." method="_on_main_menu_button_pressed"]

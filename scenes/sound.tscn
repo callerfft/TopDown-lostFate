@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://djfwwqkq3p8iq"]
+
+[ext_resource type="Script" uid="uid://cej5hymjrfr3e" path="res://scripts/systems/audio_stream_player_2d.gd" id="1_3j8lq"]
+[ext_resource type="AudioStream" uid="uid://msiy3g06r0hd" path="res://assets/audio/music/C418 - Moog City 2 (Slowed).mp3" id="1_7ywqe"]
+
+[node name="GlobalSound" type="Node" unique_id=2027157155]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=812076794]
+stream = ExtResource("1_7ywqe")
+volume_db = 9.13
+autoplay = true
+parameters/looping = true
+script = ExtResource("1_3j8lq")

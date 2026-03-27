@@ -25,9 +25,9 @@ buses/default_bus_layout="uid://cmrg0rj0jy627"
 
 [autoload]
 
-FpsC="*res://tscn/fps_c.tscn"
-ItemDatabase="*res://addons/claude/ItemDatabase.gd"
-GameManager="*res://scripts/game_manager.gd"
+FpsC="*res://scenes/ui/fps_c.tscn"
+ItemDatabase="*res://scripts/autoload/ItemDatabase.gd"
+GameManager="*res://scripts/autoload/game_manager.gd"
 
 [debug]
 

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://byh5xqsrt8dcu"]
+
+[ext_resource type="Texture2D" uid="uid://lfohnkolxe4o" path="res://assets/sprites/weapons/spr_wep_wood_sword_4.png" id="1_813x0"]
+[ext_resource type="Script" uid="uid://b85y8y8f60607" path="res://scripts/buildings/ammo.gd" id="1_tiugc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tiugc"]
+size = Vector2(12, 6)
+
+[node name="ammo" type="Node2D"]
+script = ExtResource("1_tiugc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_813x0")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-4, 0)
+rect = Rect2(-10, -3, 20, 6)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_tiugc")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
