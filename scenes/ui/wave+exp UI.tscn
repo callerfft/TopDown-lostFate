@@ -5,9 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://c8c017ljkgi5q" path="res://assets/sprites/ui/Без имени.png" id="3_1a6fk"]
 [ext_resource type="Script" uid="uid://dmj0fx66mq017" path="res://scripts/systems/shop_menu.gd" id="4_r0pyk"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gg4d0"]
-load_path = "res://.godot/imported/Без имени.png-e33d903e662b0d2d9574e670bebf3d89.ctex"
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gg4d0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
@@ -40,7 +37,6 @@ offset_right = -5.0
 offset_bottom = 85.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_icons/icon = SubResource("CompressedTexture2D_gg4d0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gg4d0")
 icon = ExtResource("3_1a6fk")
 flat = true

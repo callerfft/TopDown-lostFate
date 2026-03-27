@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7joc5fk4ea0b"
-path="res://.godot/imported/Layer_0004_Lights.png-ee5a26186ec1571bbf34545fe6b1ca3f.ctex"
+path="res://.godot/imported/Layer_0004_Lights.png-5e3630c33f0aa7d742a6e328bbdb514e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://map/mapLayer/Layer_0004_Lights.png"
-dest_files=["res://.godot/imported/Layer_0004_Lights.png-ee5a26186ec1571bbf34545fe6b1ca3f.ctex"]
+source_file="res://assets/sprites/environment/Layer_0004_Lights.png"
+dest_files=["res://.godot/imported/Layer_0004_Lights.png-5e3630c33f0aa7d742a6e328bbdb514e.ctex"]
 
 [params]
 

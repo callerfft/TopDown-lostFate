@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5ua08n5vmajl"]
 
-[ext_resource type="Script" uid="uid://bjcap2eugyn4y" path="res://scripts/systems/node_2d.gd" id="1_4337f"]
+[ext_resource type="Script" uid="uid://db35307k88vxk" path="res://scripts/systems/node_2d.gd" id="1_4337f"]
 [ext_resource type="Texture2D" uid="uid://fou4ge3x2vrv" path="res://assets/sprites/effects/кровь3.png" id="2_53cnx"]
 [ext_resource type="Texture2D" uid="uid://djhfxp3epivab" path="res://assets/sprites/effects/кровь2.png" id="2_4337f"]
 

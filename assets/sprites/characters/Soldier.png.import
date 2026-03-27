@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://f5j1tk2vw14x"
-path="res://.godot/imported/Soldier.png-7b3e333d1d29d94e1c731c256cb65de9.ctex"
+path="res://.godot/imported/Soldier.png-e4d87e6e9064eaeac89f3a99a8c73b08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mobs/Soldier.png"
-dest_files=["res://.godot/imported/Soldier.png-7b3e333d1d29d94e1c731c256cb65de9.ctex"]
+source_file="res://assets/sprites/characters/Soldier.png"
+dest_files=["res://.godot/imported/Soldier.png-e4d87e6e9064eaeac89f3a99a8c73b08.ctex"]
 
 [params]
 

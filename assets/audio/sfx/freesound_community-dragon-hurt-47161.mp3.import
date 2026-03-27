@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://jvltukprkdl4"
-path="res://.godot/imported/freesound_community-dragon-hurt-47161.mp3-40300ab8565a06e94db924ac6446cf2b.mp3str"
+path="res://.godot/imported/freesound_community-dragon-hurt-47161.mp3-0fbb5ab34e4210ace778eea5d8a3ebb5.mp3str"
 
 [deps]
 
-source_file="res://audio/sound/freesound_community-dragon-hurt-47161.mp3"
-dest_files=["res://.godot/imported/freesound_community-dragon-hurt-47161.mp3-40300ab8565a06e94db924ac6446cf2b.mp3str"]
+source_file="res://assets/audio/sfx/freesound_community-dragon-hurt-47161.mp3"
+dest_files=["res://.godot/imported/freesound_community-dragon-hurt-47161.mp3-0fbb5ab34e4210ace778eea5d8a3ebb5.mp3str"]
 
 [params]
 

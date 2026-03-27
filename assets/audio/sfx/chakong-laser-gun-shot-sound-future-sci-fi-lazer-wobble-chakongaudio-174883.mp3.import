@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c85tx3hdp1tda"
-path="res://.godot/imported/chakong-laser-gun-shot-sound-future-sci-fi-lazer-wobble-chakongaudio-174883.mp3-d062192eaf606d8fb7262c56a4f007ae.mp3str"
+path="res://.godot/imported/chakong-laser-gun-shot-sound-future-sci-fi-lazer-wobble-chakongaudio-174883.mp3-7ceef1602a0eafdcfd1407d051a3533d.mp3str"
 
 [deps]
 
-source_file="res://audio/sound/chakong-laser-gun-shot-sound-future-sci-fi-lazer-wobble-chakongaudio-174883.mp3"
-dest_files=["res://.godot/imported/chakong-laser-gun-shot-sound-future-sci-fi-lazer-wobble-chakongaudio-174883.mp3-d062192eaf606d8fb7262c56a4f007ae.mp3str"]
+source_file="res://assets/audio/sfx/chakong-laser-gun-shot-sound-future-sci-fi-lazer-wobble-chakongaudio-174883.mp3"
+dest_files=["res://.godot/imported/chakong-laser-gun-shot-sound-future-sci-fi-lazer-wobble-chakongaudio-174883.mp3-7ceef1602a0eafdcfd1407d051a3533d.mp3str"]
 
 [params]
 

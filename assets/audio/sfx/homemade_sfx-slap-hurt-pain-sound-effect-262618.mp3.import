@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://hkc8fpered7m"
-path="res://.godot/imported/homemade_sfx-slap-hurt-pain-sound-effect-262618.mp3-361c152ba7e547994e889b91191e7da7.mp3str"
+path="res://.godot/imported/homemade_sfx-slap-hurt-pain-sound-effect-262618.mp3-20df48ea5a6054182188dba0e75d1453.mp3str"
 
 [deps]
 
-source_file="res://audio/sound/homemade_sfx-slap-hurt-pain-sound-effect-262618.mp3"
-dest_files=["res://.godot/imported/homemade_sfx-slap-hurt-pain-sound-effect-262618.mp3-361c152ba7e547994e889b91191e7da7.mp3str"]
+source_file="res://assets/audio/sfx/homemade_sfx-slap-hurt-pain-sound-effect-262618.mp3"
+dest_files=["res://.godot/imported/homemade_sfx-slap-hurt-pain-sound-effect-262618.mp3-20df48ea5a6054182188dba0e75d1453.mp3str"]
 
 [params]
 

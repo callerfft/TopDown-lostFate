@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brwlwfe4dg5sb"
-path="res://.godot/imported/02PixelCoinSilver.png-1b9590d7aadb117ba48cdccc0b9a09c7.ctex"
+path="res://.godot/imported/02PixelCoinSilver.png-465adbd308163b8fa60a13f200bbbabe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CoinsPixelArtTipe01/02PixelCoinSilver.png"
-dest_files=["res://.godot/imported/02PixelCoinSilver.png-1b9590d7aadb117ba48cdccc0b9a09c7.ctex"]
+source_file="res://assets/sprites/items/02PixelCoinSilver.png"
+dest_files=["res://.godot/imported/02PixelCoinSilver.png-465adbd308163b8fa60a13f200bbbabe.ctex"]
 
 [params]
 

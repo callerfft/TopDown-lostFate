@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://msiy3g06r0hd"
-path="res://.godot/imported/C418 - Moog City 2 (Slowed).mp3-463eb3e1003104094e81c0f8d2372cb1.mp3str"
+path="res://.godot/imported/C418 - Moog City 2 (Slowed).mp3-5c59c8055461ed2f17c89ea729654052.mp3str"
 
 [deps]
 
-source_file="res://filt/C418 - Moog City 2 (Slowed).mp3"
-dest_files=["res://.godot/imported/C418 - Moog City 2 (Slowed).mp3-463eb3e1003104094e81c0f8d2372cb1.mp3str"]
+source_file="res://assets/audio/music/C418 - Moog City 2 (Slowed).mp3"
+dest_files=["res://.godot/imported/C418 - Moog City 2 (Slowed).mp3-5c59c8055461ed2f17c89ea729654052.mp3str"]
 
 [params]
 

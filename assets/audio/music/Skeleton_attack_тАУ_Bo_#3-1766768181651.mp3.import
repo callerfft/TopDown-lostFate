@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bdvxoa42gg8om"
-path="res://.godot/imported/Skeleton_attack_тАУ_Bo_#3-1766768181651.mp3-4bcec528bdf006a64902f71af850c911.mp3str"
+path="res://.godot/imported/Skeleton_attack_тАУ_Bo_#3-1766768181651.mp3-96984f3240642eba390779f9ac18274e.mp3str"
 
 [deps]
 
-source_file="res://filt/Skeleton_attack_тАУ_Bo_#3-1766768181651.mp3"
-dest_files=["res://.godot/imported/Skeleton_attack_тАУ_Bo_#3-1766768181651.mp3-4bcec528bdf006a64902f71af850c911.mp3str"]
+source_file="res://assets/audio/music/Skeleton_attack_тАУ_Bo_#3-1766768181651.mp3"
+dest_files=["res://.godot/imported/Skeleton_attack_тАУ_Bo_#3-1766768181651.mp3-96984f3240642eba390779f9ac18274e.mp3str"]
 
 [params]
 

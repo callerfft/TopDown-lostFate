@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7jvqjkk7dqb3"
-path="res://.godot/imported/spr_wep_steel_huge_2.png-006ecc7e09c81fc38aa575cb0d49c1e1.ctex"
+path="res://.godot/imported/spr_wep_steel_huge_2.png-7f29604d10a44bc012b0b58de0b4a402.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mobs/guns/spr_wep_steel_huge_2.png"
-dest_files=["res://.godot/imported/spr_wep_steel_huge_2.png-006ecc7e09c81fc38aa575cb0d49c1e1.ctex"]
+source_file="res://assets/sprites/weapons/spr_wep_steel_huge_2.png"
+dest_files=["res://.godot/imported/spr_wep_steel_huge_2.png-7f29604d10a44bc012b0b58de0b4a402.ctex"]
 
 [params]
 
