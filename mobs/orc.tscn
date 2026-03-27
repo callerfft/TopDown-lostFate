@@ -3,11 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://ctu1ft50h501c" path="res://mobs/Orc.png" id="1_1c74i"]
 [ext_resource type="Script" uid="uid://dpdjbbyqw5ry7" path="res://mobs/orc.gd" id="1_q5rie"]
 [ext_resource type="PackedScene" uid="uid://c5ua08n5vmajl" path="res://effects/blood.tscn" id="2_347kl"]
+[ext_resource type="PackedScene" uid="uid://du3pvgj3yqrxj" path="res://tscn/coin.tscn" id="3_17h1c"]
 [ext_resource type="AudioStream" uid="uid://3l4nm6emnwfm" path="res://audio/sound/stepir44-hurt-sound-435314.mp3" id="3_qed8s"]
 [ext_resource type="Texture2D" uid="uid://cci0lah1g0eod" path="res://filt/light.png" id="4_qed8s"]
-
-[sub_resource type="Resource" id="Resource_17h1c"]
-metadata/__load_path__ = "res://coin.tscn"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5rie"]
 radius = 6.0
@@ -162,7 +160,7 @@ animations = [{
 [node name="orc" type="CharacterBody2D" unique_id=1991152188 groups=["enemy"]]
 script = ExtResource("1_q5rie")
 blood_effect_scene = ExtResource("2_347kl")
-coin_scene = SubResource("Resource_17h1c")
+coin_scene = ExtResource("3_17h1c")
 
 [node name="Panel" type="Panel" parent="." unique_id=634161085]
 visible = false
