@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d0p2qi7ce5u1u" path="res://scripts/buildings/shop_building.gd" id="1_ata7t"]
 [ext_resource type="Texture2D" uid="uid://dpbmgesunynsy" path="res://assets/sprites/ui/Снимок экрана 2026-03-15 183822.png" id="2_ute00"]
+[ext_resource type="Texture2D" uid="uid://bcgeix254c51m" path="res://assets/sprites/ui/ChatGPT Image 28 мар. 2026 г., 11_34_47.png" id="3_8g04i"]
+[ext_resource type="StyleBox" uid="uid://dy2aoqqw35fjy" path="res://resources/base for normal button.tres" id="4_dwa8n"]
+[ext_resource type="StyleBox" uid="uid://de57sb1h3e2c0" path="res://resources/hoverBaset.tres" id="5_ximao"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ute00"]
 
@@ -38,10 +41,39 @@ input_pickable = false
 position = Vector2(32.5, 14)
 shape = SubResource("RectangleShape2D_doswc")
 
+[node name="ShopModels" type="Node2D" parent="." unique_id=1234567890]
+position = Vector2(31.125, -23.624998)
+scale = Vector2(0.41962025, 0.41)
+
+[node name="OpenModel" type="Sprite2D" parent="ShopModels" unique_id=1234567891]
+visible = false
+texture = ExtResource("2_ute00")
+
+[node name="ClosedModel" type="Sprite2D" parent="ShopModels" unique_id=1234567892]
+position = Vector2(0.18846297, -0.91462886)
+scale = Vector2(0.25691608, 0.25724086)
+texture = ExtResource("3_8g04i")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1286608618]
+layer = 10
+
+[node name="InteractButton" type="Button" parent="CanvasLayer" unique_id=1383933938]
+visible = false
+offset_left = 525.0
+offset_top = 400.0
+offset_right = 632.0
+offset_bottom = 431.0
+theme_override_styles/normal = ExtResource("4_dwa8n")
+theme_override_styles/hover = ExtResource("5_ximao")
+text = "Open Shop"
+
 [node name="Label" type="Label" parent="." unique_id=1982510027]
+visible = false
 offset_left = -10.0
 offset_top = -91.0
 offset_right = 66.0
 offset_bottom = -34.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1793401784]
+
+[connection signal="pressed" from="CanvasLayer/InteractButton" to="." method="_on_interact_button_pressed"]

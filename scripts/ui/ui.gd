@@ -62,8 +62,9 @@ func update_all_labels() -> void:
 	coins_label.text = "Coins: %d" % GameManager.coins
 	artifacts_label.text = "Artifacts: %d" % GameManager.artifacts
 	hp_label.text = "HP: %d / %d" % [GameManager.upgrades.current_hp, GameManager.upgrades.max_hp]
+
 func _on_level_up(new_level: int) -> void:
-	print("LEVEL UP! New level: %d" % new_level)
+	pass
 
 func _on_wave_completed() -> void:
 	wave_timer_container.visible = true

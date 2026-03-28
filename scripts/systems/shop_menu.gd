@@ -1,5 +1,8 @@
 extends Control
 
+signal shop_opened
+signal shop_closed
+
 @onready var currency_label: Label = $CurrencyLabel
 @onready var close_button: Button = $CloseButton
 
@@ -18,6 +21,7 @@ var shop_items = {
 }
 
 var item_buttons = {}
+var is_locked: bool = false  # Блокировка во время волны
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -79,21 +83,34 @@ func show_shop() -> void:
 	visible = true
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	update_shop_ui()
+	shop_opened.emit()
 
 func hide_shop() -> void:
 	visible = false
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	shop_closed.emit()
+
+func set_locked(locked: bool) -> void:
+	is_locked = locked
+	update_shop_ui()
+	
+	if is_locked:
+		hide_shop()
 
 func update_shop_ui() -> void:
 	if currency_label:
 		currency_label.text = "---Coins: %d" % GameManager.shop_currency
-	
+
 	# Обновляем кнопки
 	for item_id in item_buttons.keys():
 		var button = item_buttons[item_id]
 		var item_data = shop_items[item_id]
-		
-		if GameManager.purchased_items.get(item_id, false):
+
+		if is_locked:
+			# Во время волны все кнопки заблокированы
+			button.text = "LOCKED"
+			button.disabled = true
+		elif GameManager.purchased_items.get(item_id, false):
 			button.text = "OWNED"
 			button.disabled = true
 		elif not GameManager.can_afford(item_data.price):

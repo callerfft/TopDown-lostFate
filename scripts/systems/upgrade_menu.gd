@@ -96,11 +96,9 @@ func _input(event: InputEvent) -> void:
 			show_panel()
 
 func _on_level_up(new_level: int) -> void:
-	print("Level up! Level: ", new_level)
-	
 	var options = generate_random_upgrades()
 	pending_upgrades.append(options)
-	
+
 	update_notification()
 
 func generate_random_upgrades() -> Array:

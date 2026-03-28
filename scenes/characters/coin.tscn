@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://du3pvgj3yqrxj"]
 
-[ext_resource type="Script" uid="uid://8dkw1kowmiyg" path="res://scripts/characters/coin.gd" id="2_7bn28"]
+[ext_resource type="Script" uid="uid://cp6vdn32lh4ta" path="res://scripts/characters/coin.gd" id="1_coin"]
 [ext_resource type="Texture2D" uid="uid://brnsdhm4h1isf" path="res://assets/sprites/items/01PixelCoinGold.png" id="2_o03qj"]
+[ext_resource type="AudioStream" uid="uid://hkc8fpered7m" path="res://assets/audio/sfx/homemade_sfx-slap-hurt-pain-sound-effect-262618.mp3" id="2_qa0pv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ighy"]
 atlas = ExtResource("2_o03qj")
@@ -14,10 +15,6 @@ region = Rect2(16, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhsd1"]
 atlas = ExtResource("2_o03qj")
 region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ypla"]
-atlas = ExtResource("2_o03qj")
-region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h2w7l"]
 atlas = ExtResource("2_o03qj")
@@ -40,9 +37,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_qhsd1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5ypla")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_h2w7l")
 }, {
 "duration": 1.0,
@@ -54,10 +48,15 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5plq"]
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qdy0e"]
+radius = 32.0
 
 [node name="coin" type="CharacterBody2D" unique_id=2068205712]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_coin")
+coin_value = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1058829994]
 sprite_frames = SubResource("SpriteFrames_4lb7a")
@@ -67,8 +66,16 @@ autoplay = "coin"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=865886161]
 shape = SubResource("CircleShape2D_d5plq")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1714821080]
-script = ExtResource("2_7bn28")
+[node name="Area2D" type="Area2D" parent="." unique_id=1714821080 groups=["coin"]]
+collision_layer = 512
+collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=607702776]
 shape = SubResource("CircleShape2D_qdy0e")
+
+[node name="pickupSound" type="AudioStreamPlayer" parent="." unique_id=532593797]
+stream = ExtResource("2_qa0pv")
+volume_db = -5.0
+pitch_scale = 1.2
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
