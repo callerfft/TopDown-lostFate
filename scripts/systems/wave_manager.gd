@@ -1,7 +1,11 @@
 extends Node
 
 @export var orc_scene: PackedScene
-#fdsgsgsgsgs
+@export var brute_scene: PackedScene  # Новый мощный враг-танк
+
+# Шанс спавна brute вместо орка (20% на первых волнах)
+@export var brute_spawn_chance: float = 0.2
+
 var enemies_alive: int = 0
 var enemies_to_spawn: int = 0
 var enemies_spawned_this_wave: int = 0
@@ -61,22 +65,30 @@ func _on_spawn_timer_timeout() -> void:
 		print("success spawns--")
 
 func spawn_enemy() -> void:
-	if not orc_scene:
-		push_error("Orc scene not assigned!")
-		return
-	
 	var player_node = get_tree().get_first_node_in_group("player") as Node2D
 	if not player_node:
 		return
-	
+
 	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	var random_distance = randf_range(500, 650)
 	var spawn_pos = player_node.global_position + (random_direction * random_distance)
-	
-	var enemy = orc_scene.instantiate() as Node2D
+
+	# Определяем, какого врага спавнить: brute (20%) или orc (80%)
+	var enemy: Node2D = null
+	var spawn_brute = randf() < brute_spawn_chance
+
+	if spawn_brute and brute_scene:
+		enemy = brute_scene.instantiate() as Node2D
+		print("  >> Spawned BRUTE (chance: ", brute_spawn_chance * 100, "%)")
+	elif orc_scene:
+		enemy = orc_scene.instantiate() as Node2D
+	else:
+		push_error("No enemy scene assigned!")
+		return
+
 	get_parent().add_child(enemy)
 	enemy.global_position = spawn_pos
-	
+
 	enemies_alive += 1
 
 func on_enemy_killed() -> void:

@@ -14,7 +14,6 @@ var is_on_floor = false
 @export var coin_scale: float = 0.5  # Размер монеты
 
 @onready var pickup_sound: AudioStreamPlayer = $pickupSound
-@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var area: Area2D = $Area2D
 
 var _initial_y: float = 0.0
@@ -63,17 +62,16 @@ func _animate_pickup():
 	if is_collected:
 		return
 	is_collected = true
-	
-	if collision_shape:
-		collision_shape.disabled = true
+
 	if area:
 		area.monitoring = false
-	
+		area.collision_mask = 0  # Отключаем коллизию
+
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE * 0.75, 0.15)
 	tween.parallel().tween_property(self, "position:y", position.y - 30, 0.15)
 	tween.parallel().tween_property(self, "modulate:a", 0.0, 0.15)
-	
+
 	tween.tween_callback(_collect)
 
 func _collect():

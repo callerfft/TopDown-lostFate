@@ -63,12 +63,9 @@ sprite_frames = SubResource("SpriteFrames_4lb7a")
 animation = &"coin"
 autoplay = "coin"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=865886161]
-shape = SubResource("CircleShape2D_d5plq")
-
 [node name="Area2D" type="Area2D" parent="." unique_id=1714821080 groups=["coin"]]
 collision_layer = 512
-collision_mask = 2
+collision_mask = 1
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=607702776]
 shape = SubResource("CircleShape2D_qdy0e")

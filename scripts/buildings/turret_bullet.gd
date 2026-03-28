@@ -43,9 +43,9 @@ func _on_body_entered(body: Node2D) -> void:
 		hit_enemy(body)
 
 func hit_enemy(enemy: Node2D) -> void:
-	print("💥 Turret bullet hit: ", enemy.name)
+	print("💥 Turret bullet hit enemy: ", enemy.name)
 	
-	if enemy.has_method("_on_area_2d_area_entered"):
-		enemy._on_area_2d_area_entered(self)
+	if enemy.has_method("take_damage"):
+		enemy.take_damage(1)  # 1 урон от пули
 	
 	queue_free()

@@ -7,14 +7,15 @@ signal enemy_died
 @export var coin_scene: PackedScene
 @export var artifact_scene: PackedScene
 
-var speed = 100
+# Характеристики танка: меньше скорость, больше здоровья
+var speed = 75  # Медленнее орка (100 -> 75)
 var is_dead = false
 var has_notified_wave_manager = false
 var drop_chance: float = 0.9  # 90% шанс выпадения монеты
 
-# Система здоровья
-var health: int = 3
-var max_health: int = 3
+# Система здоровья (больше чем у орка)
+var health: int = 8
+var max_health: int = 8
 var damage_flash_timer: float = 0.0
 
 func _ready() -> void:
@@ -25,12 +26,18 @@ func take_damage(amount: int = 1) -> void:
 		return
 
 	health -= amount
-	damage_flash_timer = 0.1  # Мигание 0.1 сек
+	damage_flash_timer = 0.15  # Мигание 0.15 сек
 
-	# Визуальная реакция - мигание красным
+	# Визуальная реакция - мигание красным и отталкивание
 	modulate = Color(1.5, 0.3, 0.3, 1.0)  # Красный цвет
+	
+	# Отталкивание от игрока
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		var knockback_direction = (global_position - player.global_position).normalized()
+		velocity = knockback_direction * 150  # Отталкивание
 
-	print("👹 Orc took ", amount, " damage! HP: ", health, "/", max_health)
+	print("💀 Brute took ", amount, " damage! HP: ", health, "/", max_health)
 
 	if health <= 0:
 		die()
@@ -49,7 +56,6 @@ func die():
 	is_dead = true
 	speed = 0
 
-	# отключение всех коллизии
 	for child in get_children():
 		if child is CollisionShape2D:
 			child.set_deferred("disabled", true)
@@ -94,8 +100,6 @@ func kill_all():
 	is_dead = true
 	speed = 0
 
-	#animated_sprite_2d.stop()
-	# отключение всех коллизии
 	for child in get_children():
 		if child is CollisionShape2D:
 			child.set_deferred("disabled", true)
@@ -147,7 +151,7 @@ func spawn_effects() -> void:
 func spawn_blood() -> void:
 	if not blood_effect_scene:
 		return
-	
+
 	var blood = blood_effect_scene.instantiate()
 	get_parent().add_child(blood)
 	blood.global_position = global_position
@@ -158,7 +162,6 @@ func spawn_drop() -> void:
 
 	var drop_instance: Node2D = null
 
-	# Всегда спавним монету (90% шанс)
 	if coin_scene:
 		drop_instance = coin_scene.instantiate()
 

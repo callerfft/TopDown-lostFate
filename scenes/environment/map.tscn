@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://ph1jeq42n61p" path="res://scenes/effects/timer_on_screen.tscn" id="8_bhkyt"]
 [ext_resource type="PackedScene" uid="uid://tmmme5hmnt4o" path="res://scenes/environment/regen_zone.tscn" id="11_fd4qy"]
 [ext_resource type="PackedScene" uid="uid://btwotx1f2upi4" path="res://scenes/ui/fps_c.tscn" id="12_q5imy"]
-[ext_resource type="PackedScene" uid="uid://ybxtopsdvrbd" path="res://scenes/characters/orc.tscn" id="13_e1ltc"]
 [ext_resource type="PackedScene" uid="uid://djfwwqkq3p8iq" path="res://scenes/sound.tscn" id="15_bhc64"]
 [ext_resource type="PackedScene" uid="uid://dwov8a1qqnqgi" path="res://scenes/environment/shop_building.tscn" id="16_8yf2x"]
 [ext_resource type="PackedScene" uid="uid://dge6a5nq7302k" path="res://scenes/wave_manager.tscn" id="16_ouipm"]
@@ -1909,12 +1908,6 @@ corner_radius_bottom_left = 21
 shadow_color = Color(0.40832946, 0.40832946, 0.40832946, 0.6)
 shadow_size = 5
 
-[sub_resource type="Resource" id="Resource_ouipm"]
-metadata/__load_path__ = "res://blood_scene.tscn"
-
-[sub_resource type="Resource" id="Resource_8yf2x"]
-metadata/__load_path__ = "res://coin.tscn"
-
 [node name="map" type="Node" unique_id=1691484979]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=214934748]
@@ -2040,11 +2033,6 @@ scale = Vector2(0.43986875, 1.1913743)
 script = null
 
 [node name="fpsC" parent="." unique_id=316293068 instance=ExtResource("12_q5imy")]
-
-[node name="orc" parent="." unique_id=2087706326 instance=ExtResource("13_e1ltc")]
-position = Vector2(-177, 156)
-blood_effect_scene = SubResource("Resource_ouipm")
-coin_scene = SubResource("Resource_8yf2x")
 
 [node name="WaveManager" parent="." unique_id=1946162618 groups=["wave_manager"] instance=ExtResource("16_ouipm")]
 

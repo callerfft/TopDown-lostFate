@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://ybxtopsdvrbd"]
+[gd_scene format=3 uid="uid://b20533pw5yx4n"]
 
 [ext_resource type="Texture2D" uid="uid://ctu1ft50h501c" path="res://assets/sprites/characters/Orc.png" id="1_1c74i"]
-[ext_resource type="Script" uid="uid://dpdjbbyqw5ry7" path="res://scripts/characters/orc.gd" id="1_q5rie"]
+[ext_resource type="Script" uid="uid://cr0yblb1lgoel" path="res://scripts/characters/brute.gd" id="1_brute"]
 [ext_resource type="PackedScene" uid="uid://c5ua08n5vmajl" path="res://scenes/effects/blood.tscn" id="2_347kl"]
 [ext_resource type="PackedScene" uid="uid://du3pvgj3yqrxj" path="res://scenes/characters/coin.tscn" id="3_17h1c"]
 [ext_resource type="AudioStream" uid="uid://3l4nm6emnwfm" path="res://assets/audio/sfx/stepir44-hurt-sound-435314.mp3" id="3_qed8s"]
 [ext_resource type="Texture2D" uid="uid://cci0lah1g0eod" path="res://assets/sprites/ui/light.png" id="4_qed8s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5rie"]
-radius = 6.0
-height = 16.0
+radius = 11.0
+height = 38.149303
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85irk"]
 atlas = ExtResource("1_1c74i")
@@ -156,9 +156,11 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_85irk"]
+radius = 8.89439
 
-[node name="orc" type="CharacterBody2D" unique_id=1991152188 groups=["enemy"]]
-script = ExtResource("1_q5rie")
+[node name="brute" type="CharacterBody2D" unique_id=1991152189 groups=["enemy"]]
+scale = Vector2(5.809, 3.606)
+script = ExtResource("1_brute")
 blood_effect_scene = ExtResource("2_347kl")
 coin_scene = ExtResource("3_17h1c")
 
@@ -172,18 +174,22 @@ scale = Vector2(4.13, 4.13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1600799941]
 light_mask = 3
+scale = Vector2(0.8099897, 1.17834)
 shape = SubResource("CapsuleShape2D_q5rie")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1645327760]
+scale = Vector2(1.6126984, 2.2032135)
 sprite_frames = SubResource("SpriteFrames_k0rl5")
-animation = &"run"
+animation = &"hurt"
 autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=141249058]
+scale = Vector2(0.7048232, 1.0255474)
 collision_layer = 4
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=419720884]
+scale = Vector2(1, 1.3026699)
 shape = SubResource("CircleShape2D_85irk")
 
 [node name="orcSound" type="AudioStreamPlayer" parent="." unique_id=1606809377]
@@ -200,7 +206,7 @@ texture = ExtResource("4_qed8s")
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=2086174703]
 position = Vector2(-1.0000153, -0.99998474)
 scale = Vector2(0.46875, 0.49804688)
-color = Color(1, 0.7896509, 0.7547281, 1)
+color = Color(1, 0, 0, 1)
 energy = 0.98
 texture = ExtResource("4_qed8s")
 

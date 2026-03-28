@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://byh5xqsrt8dcu"]
+[gd_scene format=3 uid="uid://byh5xqsrt8dcu"]
 
 [ext_resource type="Texture2D" uid="uid://lfohnkolxe4o" path="res://assets/sprites/weapons/spr_wep_wood_sword_4.png" id="1_813x0"]
 [ext_resource type="Script" uid="uid://b85y8y8f60607" path="res://scripts/buildings/ammo.gd" id="1_tiugc"]
@@ -6,21 +6,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tiugc"]
 size = Vector2(12, 6)
 
-[node name="ammo" type="Node2D"]
+[node name="ammo" type="Node2D" unique_id=482471214]
 script = ExtResource("1_tiugc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=587127690]
 texture = ExtResource("1_813x0")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1047001307]
 position = Vector2(-4, 0)
 rect = Rect2(-10, -3, 20, 6)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=565392947]
 collision_layer = 8
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1181447494]
 position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_tiugc")
 

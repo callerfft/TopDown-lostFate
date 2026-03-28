@@ -79,6 +79,7 @@ var shield_duration: float = 3.0
 var enemies_colliding = 0
 var damage_area = null
 var acceleration = 0.5
+var attack_damage: int = 1  # Урон игрока
 
 func _ready():
 	add_to_group("player")
@@ -253,6 +254,31 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 func _on_hit_box_area_exited(area: Area2D) -> void:
 	if area == damage_area:
 		damage_area = null
+
+# Атака врагов (при столкновении с врагом)
+func _on_attack_area_area_entered(area: Area2D) -> void:
+	print("🔍 attackArea entered: ", area.name, " owner: ", area.owner)
+	# Проверяем, что это враг (Area2D врага или его владелец)
+	var enemy = null
+	
+	# Сначала проверяем владельца Area2D
+	if area.owner:
+		print("  area.owner groups: ", area.owner.get_groups())
+		if area.owner.is_in_group("enemy"):
+			enemy = area.owner
+			print("✅ Found enemy via owner: ", enemy.name)
+	
+	# Если не нашли, проверяем parent
+	if enemy == null and area.get_parent():
+		var parent = area.get_parent()
+		print("  area.parent groups: ", parent.get_groups())
+		if parent.is_in_group("enemy"):
+			enemy = parent
+			print("✅ Found enemy via parent: ", enemy.name)
+	
+	if enemy and enemy.has_method("take_damage"):
+		enemy.take_damage(attack_damage)
+		print("⚔️ Player hit enemy for ", attack_damage, " damage! Enemy HP: ", enemy.health)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if hp < max_hp:

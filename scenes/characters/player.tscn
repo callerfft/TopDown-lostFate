@@ -275,6 +275,14 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox" unique_id=468731314]
 shape = SubResource("CircleShape2D_cmhbq")
 
+[node name="attackArea" type="Area2D" parent="." unique_id=1388199151]
+collision_layer = 32
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackArea" unique_id=468731315]
+radius = 10.0
+shape = SubResource("CircleShape2D_cmhbq")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=438367223]
 shape = SubResource("CapsuleShape2D_1qko1")
 
@@ -310,3 +318,4 @@ autoplay = true
 [connection signal="area_entered" from="regen" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_exited" from="hitBox" to="." method="_on_hit_box_area_exited"]
+[connection signal="area_entered" from="attackArea" to="." method="_on_attack_area_area_entered"]
